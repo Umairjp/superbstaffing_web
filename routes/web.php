@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Agency\Dashboard as AgencyDashboard;
+use App\Http\Controllers\Jobs;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -22,21 +23,23 @@ $controller_path = 'App\Http\Controllers';
 // Main Page Route
 
 
-  //Route::get('/admin', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics')->middleware('CustomAuth');
+//Route::get('/admin', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics')->middleware('CustomAuth');
 
-  //Route::group(['middleware' => ['auth', 'CustomAuth']], function () {
-    //Route::get('/admin-dashboard',[Dashboard::class, 'index'])->name('admin.dashboard')->middleware('CustomAuth');
-  //});
+//Route::group(['middleware' => ['auth', 'CustomAuth']], function () {
+//Route::get('/admin-dashboard',[Dashboard::class, 'index'])->name('admin.dashboard')->middleware('CustomAuth');
+//});
 
-  Route::group(['prefix' => 'admin',  'middleware' => 'CustomAuth'], function()
-  {
-    Route::get('/dashboard',[Dashboard::class, 'index'])->name('admin.dashboard');
-  });
+Route::group(['prefix' => 'admin',  'middleware' => 'CustomAuth'], function () {
+    Route::get('/dashboard', [Dashboard::class, 'index'])->name('admin.dashboard');
+});
 
-  Route::group(['prefix' => 'agency',  'middleware' => 'CustomAuth'], function()
-  {
-    Route::get('/dashboard',[AgencyDashboard::class,'index'])->name('agency.dashboard');
-  });
+Route::group(['prefix' => 'agency',  'middleware' => 'CustomAuth'], function () {
+    Route::get('/dashboard', [AgencyDashboard::class, 'index'])->name('agency.dashboard');
+    Route::get('/profile', [AgencyDashboard::class, 'profile'])->name('agency.profile');
+    Route::get('/profile/edit', [AgencyDashboard::class, 'profileEdit'])->name('edit.profile');
+    Route::post('/profile/update', [AgencyDashboard::class, 'profileUpdate'])->name('update.profile');
+    Route::resource('job', Jobs::class);
+});
 
 
 
@@ -57,18 +60,18 @@ Route::get('/pages/misc-under-maintenance', $controller_path . '\pages\MiscUnder
 
 // authentication
 Route::post('/email/verification-notification', function (Request $request) {
-  $request->user()->sendEmailVerificationNotification();
-  return back()->with('message', 'Verification link sent!');
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
 })->name('verification.send');
 
 Route::get('/email/verify', function () {
-  return view('auth.verify-email');
+    return view('auth.verify-email');
 })->name('verification.notice');
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-  $request->fulfill();
+    $request->fulfill();
 
-  return redirect('/');
+    return redirect('/');
 })->name('verification.verify');
 
 Route::get('/', $controller_path . '\authentications\LoginBasic@index')->name('auth-login-basic');
@@ -126,5 +129,3 @@ Route::get('/form/layouts-horizontal', $controller_path . '\form_layouts\Horizon
 
 // tables
 Route::get('/tables/basic', $controller_path . '\tables\Basic@index')->name('tables-basic');
-
-?>

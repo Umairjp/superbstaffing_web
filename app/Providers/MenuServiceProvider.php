@@ -30,3 +30,4 @@ class MenuServiceProvider extends ServiceProvider
     \View::share('menuData', [$verticalMenuData]);
   }
 }
+?>

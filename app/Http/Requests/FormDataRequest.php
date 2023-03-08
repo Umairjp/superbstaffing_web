@@ -24,19 +24,19 @@ class FormDataRequest extends FormRequest
     public function rules()
     {
         return [
-          'companyName' => 'required',
-          'companyPhone' => 'required',
-          'email' => 'required|email|unique:users',
-          'password' => 'required',
-          'zipCode' => 'required',
-          'country' => 'required',
-          'about' => 'required',
-          'country' => 'required',
-          'founded'=> 'required',
-          'type'=> 'required',
-          'industry'=> 'required',
-          'specialist'=>'required'
-      ];
+            'companyName' => 'required',
+            'companyPhone' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+            'zipCode' => 'required',
+            'country' => 'required',
+            'about' => 'required',
+            'country' => 'required',
+            'founded' => 'required',
+            'type' => 'required',
+            'industry' => 'required',
+            'specialist' => 'required'
+        ];
     }
 
     public function messages()
