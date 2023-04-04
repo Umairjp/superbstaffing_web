@@ -1,0 +1,1607 @@
+/* Screen 1600 */
+
+@media screen and (max-width: 1600px) {
+  header.header-main {
+    left: 270px;
+    background: #cbd3fc;
+  }
+
+  .sidebar {
+    width: 270px;
+  }
+
+  .body-wrapper {
+    margin: 0 0 0 270px;
+  }
+
+  .body-wrapper .content .section-padding {
+    padding: 30px;
+  }
+
+  .dashboard-table th {
+    padding: 20px 20px 0 20px;
+  }
+
+  .dashboard-table td {
+    padding: 20px 20px 0 20px;
+  }
+
+  .dashboard-messages {
+    width: 400px;
+    margin-left: -12px;
+  }
+
+  .dashboard-request {
+    width: 400px;
+  }
+
+  .dashboard-interviews {
+    width: 400px;
+    margin-left: 8px;
+  }
+
+  .mt-50 {
+    margin-top: 30px !important;
+  }
+
+  .profile-pg #myTab {
+    width: 52%;
+  }
+
+  .nav-tabs .nav-item {
+    margin-bottom: 0px;
+  }
+
+  .body-wrapper .jobs-pg .banner-heading {
+    margin-left: 0px;
+  }
+
+  .jobs-pg .container-fluid {
+    padding: 0;
+  }
+
+  .jobs-pg .create-new-job {
+    padding: 20px 30px;
+  }
+
+  .jobs-pg .create-new-job input {
+    width: 380px;
+  }
+
+  .jobs-pg .create-new-job .short {
+    width: 183px;
+  }
+
+  .jobs-pg .create-new-job textarea {
+    width: 773px;
+  }
+
+  .jobs-pg .create-new-job .btn {
+    width: 774px;
+  }
+
+  .jobs-pg .job-posted {
+    width: 427px;
+    padding: 20px 16px;
+  }
+
+  .jobs-pg .job-posted .job-posted-box {
+    padding: 14px 10px;
+    margin: 10px 10px;
+  }
+
+  .jobs-pg .current-employees {
+    padding: 30px 10px;
+  }
+
+  .jobs-pg .employee {
+    padding: 20px 10px;
+    margin: 10px;
+  }
+
+  .jobs-pg .current-employees .set-radius {
+    margin-left: 70px;
+  }
+
+  .jobs-pg .current-employees .d-flex h2 {
+    padding-right: 8px;
+    margin-right: 8px;
+  }
+
+  .messages-pg .chat-section {
+    padding: 0 30px 20px 30px;
+    margin-top: 20px;
+  }
+
+  .messages-pg .dashboard-messages {
+    margin-top: 20px;
+  }
+
+  .messages-pg .chat-section .sent-items {
+    width: 760px;
+    bottom: 4%;
+  }
+
+  .employees-table {
+    padding: 25px 20px;
+  }
+
+  .employees-table .job-status .nav-link {
+    margin-left: 20px;
+  }
+
+  .employees-table .action .nav-link {
+    margin-left: 30px;
+  }
+
+  .setting-pg .account-form {
+    margin-left: 60px;
+  }
+
+  .setting-pg .main-div {
+    margin-left: 60px;
+    overflow: hidden;
+  }
+
+  .security-settings .d-flex:last-child .form-control {
+    width: 378px;
+  }
+
+  .billing .btn-blue {
+    margin-right: 0px;
+  }
+
+  .setting-pg .payment-table {
+    width: 765px;
+  }
+
+  .setting-pg p.term-content {
+    line-height: 26px;
+  }
+
+  .setting-pg .nav-tabs .nav-item {
+    margin-bottom: -2px;
+  }
+  .billing-box .right-side {
+    margin-left: 40px;
+  }
+
+  .setting-pg .main-search .form-control {
+    height: 57px;
+  }
+  .login-form {
+    width: 470px;
+  }
+  .login-pg {
+    height: 100vh;
+    background-size: cover;
+  }
+}
+
+/* Screen 1440px */
+@media screen and (max-width: 1440px) {
+  .main-search .form-control {
+    width: 600px;
+  }
+
+  .dashboard-table .action .nav-link {
+    font-size: 14px;
+  }
+
+  .dashboard-table .job-status .nav-link {
+    font-size: 14px;
+  }
+
+  .dashboard-table td:first-child {
+    width: 27%;
+  }
+
+  .dashboard-table .para {
+    width: 100%;
+  }
+
+  .dashboard-messages {
+    width: 360px;
+  }
+
+  .dashboard-request {
+    width: 360px;
+  }
+
+  .dashboard-interviews {
+    width: 360px;
+  }
+
+  .dashboard-request .btn-blue {
+    margin-left: 0;
+  }
+
+  .jobs-pg .create-new-job input {
+    width: 330px;
+  }
+
+  .jobs-pg .create-new-job .short {
+    width: 159px;
+  }
+
+  .jobs-pg .create-new-job textarea {
+    width: 670px;
+  }
+
+  .jobs-pg .create-new-job .btn {
+    width: 670px;
+  }
+
+  .jobs-pg .job-posted {
+    width: 360px;
+    padding: 20px 0px;
+  }
+
+  .jobs-pg .dashboard-interviews {
+    margin-left: -10px;
+  }
+
+  .job-posted h2 {
+    font-size: 12px;
+    padding-right: 10px;
+    margin-right: 10px;
+  }
+
+  .jobs-pg .current-employees .set-radius {
+    margin-left: 30px;
+  }
+
+  .jobs-pg .current-employees .content p {
+    font-size: 12px;
+  }
+
+  .messages-pg .chat-section .sent-items {
+    width: 650px;
+  }
+
+  .recent-payment {
+    width: 360px;
+  }
+
+  .current-payment {
+    width: 360px;
+  }
+
+  .setting-pg .account-form {
+    margin-left: 100px;
+  }
+
+  .setting-pg .main-div {
+    margin-left: 100px;
+    padding: 30px 30px;
+  }
+
+  .security-settings .d-flex:last-child .form-control {
+    width: 207px;
+    padding-right: 0px;
+  }
+
+  .next-payment .left-side h6 {
+    font-size: 16px;
+  }
+
+  .next-payment .left-side h1 {
+    font-size: 30px;
+  }
+
+  .next-payment .left-side p {
+    font-size: 16px;
+  }
+
+  .billing-box .right-side {
+    margin-left: 20px;
+  }
+
+  .billing-box {
+    width: 307px;
+    padding: 20px 12px;
+  }
+
+  .next-payment .right p {
+    font-size: 16px;
+    margin-left: 90px;
+  }
+
+  .next-payment .icon-Icon-awesome-credit-card {
+    top: 35%;
+    left: 4%;
+  }
+
+  .setting-pg .payment-table {
+    width: 643px;
+    box-shadow: none;
+  }
+
+  .security-settings .d-flex:last-child .form-control {
+    width: 226px;
+  }
+
+  .setting-pg p.term-content {
+    line-height: 24px;
+    font-size: 14px;
+  }
+
+  .ep-pg .ep-btn-review {
+    margin-right: 0;
+  }
+}
+
+/* Screen 1366 */
+
+@media screen and (max-width: 1366px) {
+  .dashboard-table td,
+  .dashboard-table th {
+    padding: 20px 12px 0 12px;
+  }
+
+  .dashboard-messages {
+    width: 330px;
+    padding: 20px 12px;
+  }
+
+  .dashboard-request {
+    width: 330px;
+    margin-left: -5px;
+    padding: 20px 12px;
+  }
+
+  .dashboard-interviews {
+    width: 330px;
+    margin-left: 0px;
+    padding: 20px 12px;
+  }
+
+  .main-search .form-control {
+    width: 550px;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu .dropdown {
+    margin-left: 130px;
+  }
+
+  .jobs-pg .create-new-job input {
+    width: 300px;
+  }
+
+  .jobs-pg .create-new-job .short {
+    width: 142px;
+  }
+
+  .jobs-pg .create-new-job textarea {
+    width: 615px;
+  }
+
+  .jobs-pg .create-new-job .btn {
+    width: 615px;
+  }
+
+  .jobs-pg .current-employees .d-flex h2 {
+    font-size: 10px;
+  }
+
+  .jobs-pg .current-employees .d-flex span {
+    font-size: 9px;
+    width: 80%;
+    margin-right: -20px;
+  }
+
+  .jobs-pg .current-employees .content h1 {
+    font-size: 14px;
+  }
+
+  .jobs-pg .current-employees .content p {
+    font-size: 10px;
+  }
+
+  .jobs-pg .current-employees h1 {
+    font-size: 16px;
+  }
+
+  .jobs-pg .job-posted {
+    width: 340px;
+  }
+
+  .jobs-pg .dashboard-interviews {
+    margin-left: -3px;
+  }
+
+  .job-posted h2 {
+    font-size: 12px;
+    padding-right: 8px;
+    margin-right: 8px;
+  }
+  .messages-pg .chat-section .sent-items {
+    width: 600px;
+  }
+
+  .recent-payment {
+    width: 340px;
+    padding: 20px 20px;
+  }
+
+  .current-payment {
+    width: 340px;
+    padding: 20px 20px;
+  }
+
+  .payment-table .p-title {
+    font-size: 22px;
+  }
+
+  .recent-payment .r-title {
+    font-size: 20px;
+  }
+
+  .recent-payment .recent-right-1 td {
+    font-size: 16px;
+  }
+
+  .recent-payment .recent-right-1 td.last-cell {
+    font-size: 12px;
+  }
+
+  .current-payment .r-title {
+    font-size: 18px;
+  }
+
+  .current-payment .custom-dsb h1 {
+    font-size: 16px;
+  }
+
+  .current-payment .custom-dsb p {
+    font-size: 12px;
+  }
+
+  .setting-pg .account-form {
+    padding: 30px 30px;
+  }
+
+  .setting-pg .account-form h1 {
+    font-size: 26px;
+  }
+
+  .setting-pg .form-control {
+    font-size: 16px;
+  }
+
+  .setting-pg .form-control::placeholder {
+    font-size: 16px;
+  }
+
+  .setting-pg .form-btn a {
+    padding: 16px;
+    width: 140px;
+    font-size: 16px;
+  }
+
+  .notification-settings .custom-dsb p {
+    font-size: 16px;
+  }
+
+  .notification-settings .custom-dsb .btn-txt {
+    font-size: 20px;
+  }
+
+  .notification-settings .custom-dsb .toggle.btn {
+    min-width: 30px;
+    min-height: 20px;
+  }
+
+  .security-settings .d-flex:last-child .form-control {
+    width: 200px;
+  }
+
+  .next-payment .right-side h6 {
+    font-size: 14px;
+  }
+
+  .next-payment .right-side p {
+    font-size: 10px;
+  }
+
+  .next-payment .left-side h1 {
+    font-size: 24px;
+  }
+
+  .next-payment .left-side p {
+    font-size: 13px;
+  }
+
+  .billing-box .right-side {
+    margin-left: 10px;
+    padding-left: 20px;
+  }
+
+  .billing-box {
+    padding-top: 30px;
+  }
+
+  .setting-pg .payment-table {
+    width: 590px;
+    box-shadow: none;
+  }
+
+  .setting-pg .payment-table .p-title {
+    margin-top: 0px;
+    font-size: 20px;
+  }
+  .setting-pg p.term-content {
+    line-height: 22px;
+    font-size: 14px;
+  }
+  /* sidebar */
+  .sidebar .logout-btn {
+    position: absolute;
+    bottom: -10%;
+  }
+
+  .sidebar .sidebar-logo {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .sidebar .side-menu {
+    background: none;
+    margin-bottom: 100px;
+  }
+  .header-main .top-bar .navbar-right .nav-menu .dropdown {
+    margin-left: 120px;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu .dropdown {
+    margin-left: 120px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .sidebar .logout-btn {
+    position: absolute;
+    bottom: 10%;
+  }
+  .header-main .top-bar .navbar-right .nav-menu {
+    margin-right: -50px;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu .dropdown {
+    margin-left: 130px;
+  }
+
+  .body-wrapper .content .section-padding {
+    padding: 20px;
+  }
+
+  .dashboard-table .th-title {
+    font-size: 14px;
+  }
+
+  .dashboard-table .title {
+    font-size: 14px;
+  }
+
+  .dashboard-table .counter {
+    font-size: 14px;
+  }
+
+  .dashboard-table .salary {
+    font-size: 14px;
+  }
+
+  .dashboard-table .para {
+    font-size: 10px;
+  }
+
+  .dashboard-table .action .nav-link {
+    font-size: 12px;
+  }
+
+  .dashboard-table .job-status .nav-link {
+    font-size: 12px;
+  }
+
+  .dashboard-messages {
+    width: 310px;
+  }
+
+  .dashboard-messages .heading {
+    font-size: 18px;
+  }
+
+  .dashboard-messages .content-details h1 {
+    font-size: 14px;
+  }
+
+  .dashboard-messages .content-details p {
+    font-size: 12px;
+  }
+
+  .dashboard-request .heading {
+    font-size: 18px;
+  }
+
+  .dashboard-request {
+    width: 310px;
+  }
+
+  .dashboard-request .content-details h1 {
+    font-size: 14px;
+  }
+
+  .dashboard-request .content-details p {
+    font-size: 12px;
+  }
+
+  .dashboard-interviews {
+    width: 310px;
+  }
+
+  .dashboard-interviews .heading {
+    font-size: 18px;
+  }
+
+  .dashboard-interviews .content-details h1 {
+    font-size: 14px;
+  }
+
+  .dashboard-interviews .content-details p {
+    font-size: 12px;
+  }
+
+  .jobs-pg .create-new-job input {
+    width: 280px;
+  }
+
+  .jobs-pg .create-new-job .short {
+    width: 133px;
+  }
+
+  .jobs-pg .create-new-job textarea {
+    width: 575px;
+  }
+
+  .jobs-pg .create-new-job .btn {
+    width: 575px;
+  }
+
+  .jobs-pg .current-employees .content h1 {
+    font-size: 12px;
+  }
+
+  .jobs-pg .current-employees .content p {
+    font-size: 10px;
+    width: 80%;
+  }
+
+  .jobs-pg .current-employees .set-radius {
+    font-size: 10px;
+    margin-left: 16px;
+  }
+
+  .jobs-pg .current-employees h1 {
+    font-size: 14px;
+  }
+
+  .jobs-pg .job-posted {
+    width: 320px;
+  }
+
+  .job-posted .sub-title {
+    font-size: 14px;
+  }
+
+  .job-posted h2 {
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+
+  .dashboard-interviews .content-details h1 {
+    font-size: 12px;
+  }
+
+  .dashboard-interviews .content-details p {
+    font-size: 10px;
+  }
+
+  .messages-pg .chat-section .sent-items {
+    width: 555px;
+  }
+
+  .messages-pg .chat-title {
+    font-size: 30px;
+  }
+
+  .body-wrapper .content .banner-heading {
+    font-size: 36px;
+  }
+
+  .employees-table td {
+    font-size: 14px;
+  }
+
+  .employees-table .job-status .nav-link {
+    font-size: 14px;
+  }
+
+  .employees-table .action .nav-link {
+    font-size: 14px;
+  }
+
+  .payment-table .p-title {
+    font-size: 20px;
+  }
+
+  .payment-table th {
+    font-size: 14px;
+  }
+
+  .payment-table td {
+    font-size: 12px;
+  }
+
+  .recent-payment .r-title {
+    font-size: 18px;
+  }
+
+  .recent-payment .recent-right-1 td {
+    font-size: 14px;
+  }
+
+  .recent-payment {
+    width: 310px;
+  }
+
+  .current-payment .custom-dsb h1 {
+    font-size: 14px;
+  }
+
+  .current-payment .custom-dsb p {
+    font-size: 10px;
+  }
+
+  .current-payment {
+    width: 310px;
+  }
+  .setting-pg .nav-pills .nav-link {
+    width: 310px;
+  }
+
+  .security-settings .d-flex:last-child .form-control {
+    width: 176px;
+  }
+
+  .next-payment .icon-Icon-awesome-credit-card {
+    font-size: 40px;
+  }
+
+  .icon-Icon-awesome-credit-card:before {
+    position: absolute;
+    top: 8px;
+  }
+
+  .next-payment .left-side h6 {
+    font-size: 14px;
+  }
+
+  .setting-pg .payment-table {
+    width: 537px;
+    box-shadow: none;
+    padding: 20px 20px 0 20px;
+    height: 380px;
+  }
+
+  .setting-pg .payment-table .p-title {
+    font-size: 18px;
+  }
+
+  .setting-pg p.term-content {
+    line-height: 20px;
+  }
+
+  .setting-pg .form-control {
+    height: 50px;
+  }
+
+  .setting-pg .form-btn a {
+    margin: 0px 6px;
+  }
+
+  .setting-pg .account-form {
+    height: 660px;
+  }
+}
+
+/* Screen 991 */
+
+@media screen and (min-width: 991px) {
+  .responsive-sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .sidebar {
+    display: none;
+  }
+  header.header-main {
+    left: 0;
+  }
+
+  .responsive-sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu {
+    margin-top: -60px;
+  }
+
+  .body-wrapper {
+    top: 120px;
+    margin: 0;
+  }
+
+  .main-search .form-control {
+    width: 400px;
+    margin-left: 60px;
+  }
+
+  .main-search.form-group i {
+    left: 70px;
+    top: 14px;
+  }
+
+  .main-search .input-label {
+    left: 110px;
+  }
+
+  .main-search .form-control:focus,
+  .main-search .form-control:valid {
+    padding-left: 40px;
+  }
+
+  .responsive-sidebar .sidebar .sidebar-logo .logo {
+    margin-top: 60px;
+  }
+
+  .responsive-sidebar .bg-dark {
+    background-color: #28389100 !important;
+    z-index: 99;
+    margin: 27px;
+    width: 243px;
+  }
+
+  .responsive-sidebar .sidebar {
+    display: block;
+    left: 0;
+  }
+
+  .sidebar .sidebar-logo {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .employees-table th {
+    z-index: 8;
+  }
+  /* Dashboard */
+
+  .dashboard-table {
+    width: 970px;
+  }
+
+  .dashboard-table th {
+    white-space: nowrap;
+  }
+
+  .dashboard-messages {
+    width: 100%;
+    margin: auto;
+  }
+
+  .table-responsive {
+    border-radius: 10px;
+  }
+
+  .dashboard-messages .content-details {
+    position: relative;
+  }
+
+  .dashboard-messages .not-badge {
+    position: absolute;
+    right: -350px;
+  }
+
+  .dashboard-request {
+    width: 100%;
+    margin-top: 30px;
+    margin-left: auto;
+  }
+
+  .dashboard-request .content-details {
+    position: relative;
+  }
+
+  .dashboard-request .content-details .d-flex {
+    position: absolute;
+    right: -480px;
+  }
+
+  .dashboard-interviews {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .dashboard-interviews .content-details h1 {
+    font-size: 14px;
+  }
+
+  .dashboard-interviews .content-details p {
+    font-size: 12px;
+  }
+
+  .dashboard-interviews .schedule {
+    font-size: 14px;
+  }
+
+  .dashboard-interviews .content-details .time {
+    font-size: 12px;
+  }
+
+  .dashboard-interviews .content-details div:last-child {
+    position: absolute;
+    right: -480px;
+  }
+
+  .dashboard-interviews .content-details {
+    position: relative;
+  }
+
+  .main-search .form-control {
+    width: 270px;
+    margin-left: 40px;
+  }
+
+  .profile-pg .jobs {
+    width: 698px;
+    margin: 20px 0;
+  }
+
+  .profile-pg #myTab {
+    width: 62%;
+  }
+
+  .jobs-pg .create-new-job input {
+    width: 332px;
+  }
+  .jobs-pg .create-new-job .short {
+    width: 159px;
+  }
+
+  .jobs-pg .create-new-job textarea {
+    width: 668px;
+  }
+
+  .jobs-pg .create-new-job .btn {
+    width: 668px;
+  }
+
+  .jobs-pg .job-posted {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .jobs-pg .job-box {
+    margin: 10px;
+  }
+
+  .jobs-pg .job-posted .job-posted-box {
+    margin: 10px 10px;
+  }
+
+  .job-posted .para {
+    font-size: 12px;
+  }
+
+  .job-posted .job-description {
+    font-size: 14px;
+  }
+
+  .job-posted .sub-title {
+    font-size: 16px;
+  }
+
+  .job-posted h2:first-child {
+    margin-left: 0;
+  }
+
+  .jobs-pg .dashboard-interviews {
+    margin-left: 0px;
+    margin-bottom: 30px;
+    padding-left: 28px;
+  }
+
+  .jobs-pg .current-employees .content h1 {
+    font-size: 14px;
+  }
+
+  .jobs-pg .current-employees .content p {
+    font-size: 12px;
+  }
+
+  .jobs-pg .current-employees .content {
+    position: relative;
+  }
+
+  .jobs-pg .current-employees .set-radius {
+    position: absolute;
+    right: 10px;
+  }
+
+  .jobs-pg .current-employees .d-flex h2 {
+    font-size: 12px;
+    margin-right: 30px;
+  }
+
+  .jobs-pg .current-employees .d-flex span {
+    font-size: 10px;
+    width: 100%;
+    margin-right: 30px;
+  }
+
+  .jobs-pg .employee {
+    padding: 20px;
+  }
+
+  .jobs-pg .current-employees h1 {
+    font-size: 18px;
+  }
+  .employees-table {
+    overflow-x: auto;
+  }
+
+  .employees-table table th {
+    white-space: nowrap;
+  }
+
+  .employees-table table {
+    width: 990px;
+  }
+  .recent-payment {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .current-payment {
+    width: 100%;
+  }
+  .setting-pg .header-main .top-bar .navbar-right .nav-menu {
+    margin-top: -78px;
+  }
+
+  .setting-pg .nav-pills .nav-link p {
+    display: none;
+  }
+
+  .setting-pg .nav-pills .nav-link {
+    width: 190px;
+    padding: 10px;
+    height: 67px;
+  }
+
+  .setting-pg .account-form {
+    width: 490px;
+  }
+
+  .setting-pg .account-form .form-control {
+    width: 220px;
+  }
+
+  .setting-pg .nav-tabs {
+    width: 100%;
+  }
+
+  .setting-pg p.term-content {
+    height: 550px;
+    overflow: auto;
+  }
+
+  .setting-pg .payment-table {
+    width: 440px;
+  }
+
+  .transaction-table table th {
+  }
+
+  .payment-table td {
+    font-size: 11px;
+  }
+
+  .setting-pg .payment-table .p-title {
+    font-size: 14px;
+  }
+
+  .transaction-title a {
+    font-size: 12px;
+  }
+
+  .transaction-title input {
+    width: 60px;
+    height: 23px;
+  }
+
+  .transaction-title input::placeholder {
+    font-size: 10px;
+  }
+
+  .setting-pg .main-div .next-payment .d-flex {
+    flex-direction: column;
+  }
+
+  .next-payment .right.billing-box {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .security-settings .d-flex:last-child .form-control {
+    width: 100%;
+  }
+
+  .change-pass .d-flex:last-child {
+    flex-direction: column;
+  }
+
+  .change-pass .d-flex:last-child .btn-blue {
+    width: 100%;
+    margin-left: 0;
+  }
+  .login-header {
+    padding: 36px 20px;
+  }
+
+  .login-form .form-login-btn {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .responsive-sidebar .bg-dark {
+    position: absolute;
+    left: -30px;
+    top: -23px;
+  }
+
+  .main-search .form-control {
+    width: 130px;
+    margin-left: 10px;
+    margin-top: -18px;
+  }
+
+  .main-search .input-label {
+    left: 50px;
+  }
+
+  .main-search.form-group i {
+    left: 20px;
+    top: 19px;
+    font-size: 20px;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu .account-item .nav-link {
+    height: 50px;
+    width: 50px;
+    margin-top: 10px;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu .account-item .nav-link p {
+    display: none;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu .account-item:before {
+    height: 40px;
+    margin-top: 16px;
+    margin-left: -8px;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu .dropdown {
+    margin-left: 0px;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu .notification:before {
+    height: 40px;
+    margin-top: 4px;
+    margin-left: -14px;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu .nav-item .nav-link i {
+    margin-right: 0px;
+    top: 7px;
+    left: -20px;
+    font-size: 14px;
+    padding: 8px 9px;
+  }
+
+  .body-wrapper .content .btn {
+    font-size: 14px;
+    width: 100px;
+    height: 40px;
+    padding: 0;
+  }
+
+  .header-main .top-bar .navbar-right .nav-menu .notification {
+    margin-left: -10px;
+    margin-right: 18px;
+  }
+  .profile-pg .profile-btn .give-btn {
+    padding: 10px;
+  }
+
+  .profile-pg .user-profile {
+    left: 20px;
+  }
+
+  .profile-pg #myTab {
+    width: 90%;
+  }
+
+  .profile-pg .nav-link {
+    margin-right: 20px;
+  }
+
+  .profile-pg .jobs {
+    width: 280px;
+    margin: 20px 0;
+    overflow: auto;
+  }
+
+  .profile-pg .jobs .job-tags {
+    flex-direction: column;
+    align-items: baseline;
+    margin-left: -20px;
+  }
+
+  .profile-pg .dashboard-messages {
+    margin-top: 30px;
+  }
+
+  .profile-pg .para,
+  .profile-pg .para-2,
+  .profile-pg .sub-heading span {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .profile-pg .double-reviews {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .profile-pg .review-left,
+  .profile-pg .review-right {
+    width: 280px;
+    height: 98px;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  .jobs-pg .create-new-job input {
+    width: 250px;
+  }
+
+  .jobs-pg .create-new-job .short {
+    width: 250px;
+  }
+
+  .jobs-pg .create-new-job textarea {
+    width: 250px;
+  }
+
+  .body-wrapper .content .btn {
+    width: 250px;
+  }
+
+  .job-posted .sub-title {
+    font-size: 14px;
+  }
+
+  .job-posted .sub-title span {
+    font-size: 10px;
+    padding: 4px;
+  }
+
+  .job-posted h2 {
+    margin-right: 2px;
+    padding-right: 2px;
+    margin-bottom: 0px;
+  }
+
+  .jobs-pg .employee {
+    padding: 10px;
+  }
+
+  .jobs-pg .current-employees .set-radius {
+    right: 70px;
+  }
+
+  .jobs-pg .current-employees .d-flex h2 {
+    font-size: 12px;
+    margin: 10px 8px 0 0px;
+    padding-right: 2px;
+  }
+
+  .messages-pg .dashboard-messages {
+    margin: auto;
+    overflow: auto;
+    height: 448px;
+    margin-top: 30px;
+  }
+
+  .messages-pg .chat-section .sent-items .sent-button {
+    height: 40px;
+    width: 40px;
+    top: 19px;
+    right: 10px;
+  }
+
+  .messages-pg .chat-section .sent-items #files {
+    right: 53px;
+  }
+
+  .messages-pg .single-chat span {
+    right: 4%;
+    top: 67%;
+  }
+
+  .messages-pg .single-chat .chat-para {
+    width: 100%;
+  }
+
+  .messages-pg .single-chat.right .chat-para {
+    width: 100%;
+  }
+
+  .messages-pg .chat-title {
+    font-size: 26px;
+  }
+
+  .messages-pg .chat-section {
+    height: 588px;
+  }
+
+  .messages-pg .chat-section .sent-items {
+    width: 225px;
+  }
+  .body-wrapper .content .banner-heading {
+    font-size: 30px;
+  }
+
+  .body-wrapper .content .btn {
+    width: 130px;
+  }
+
+  .payment-table table {
+    width: 450px;
+  }
+
+  .payment-table .p-para {
+    width: 450px;
+  }
+
+  .payment-table {
+    overflow: auto;
+    padding: 20px;
+  }
+
+  .transaction-title div {
+    display: flex;
+  }
+
+  .payment-pg .content .btn {
+    height: 23px;
+    font-size: 12px;
+    padding: 2px;
+    width: 60px;
+  }
+  .transaction-table th,
+  .transaction-table td {
+    padding: 10px 10px;
+  }
+
+  .payment-table table {
+    width: 600px;
+  }
+
+  .transaction-title {
+    width: 600px;
+  }
+  .transaction-table {
+    overflow: unset;
+  }
+  .payment-table .p-para {
+    width: 600px;
+  }
+  .setting-pg .nav-pills .nav-link {
+    width: auto;
+    background: none;
+    box-shadow: none;
+    height: auto;
+    margin: 0;
+    margin-left: -10px;
+  }
+
+  .setting-pg .account-form {
+    margin-left: 0;
+    width: auto;
+    height: 860px;
+    padding: 20px;
+  }
+
+  .setting-pg .account-form .form-control {
+    height: 40px;
+    width: 280px;
+  }
+
+  .setting-pg .account-form .form-control::placeholder {
+    font-size: 12px;
+  }
+
+  .setting-pg .account-form select {
+    height: 40px;
+  }
+
+  .setting-pg .account-form select {
+    font-size: 12px;
+  }
+
+  .setting-pg .account-form h1 {
+    font-size: 18px;
+  }
+
+  .setting-pg .form-btn {
+    display: flex;
+  }
+
+  .setting-pg .form-btn a {
+    width: 100px;
+    font-size: 14px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .notification-settings .custom-dsb {
+    padding: 15px;
+  }
+
+  .setting-pg .main-div {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .setting-pg .resources h1 {
+    font-size: 22px;
+  }
+
+  .notification-settings .custom-dsb .btn {
+    width: 40px;
+    height: 20px;
+  }
+
+  .notification-settings .custom-dsb .toggle.btn {
+    height: 20px;
+    width: 40px;
+  }
+  .setting-pg .body-wrapper .content .section-padding {
+    padding: 0;
+  }
+  .notification-settings h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .setting-pg .main-div {
+    height: 730px;
+    margin-bottom: 20px;
+  }
+  .change-pass p {
+    color: #333;
+  }
+
+  .security-settings.main-div {
+    height: 500px;
+  }
+
+  .billing-box {
+    height: 160px;
+    280px
+  }
+
+  .next-payment .right p {
+    margin-left: 70px;
+    margin-bottom: 8px;
+    margin-top: -10px;
+  }
+
+  .icon-Icon-awesome-credit-card:before {
+    top: 10px;
+    left: 10px;
+  }
+
+  .billing .btn-blue {
+    margin-right: 0px;
+    padding: 6px 10px;
+  }
+
+  .setting-pg .body-wrapper .content .banner-heading {
+    margin-left: 10px;
+  }
+
+  .setting-pg .transaction-table {
+    overflow: auto;
+    width: 600px;
+  }
+
+  .setting-pg .payment-table .btn {
+    width: 60px;
+    height: 22px;
+  }
+
+  .setting-pg .payment-table {
+    width: 280px;
+    height: 250px;
+  }
+
+  .setting-pg .nav-link {
+    font-size: 12px;
+  }
+
+  .setting-pg .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link.active {
+    font-size: 12px;
+  }
+
+  .setting-pg .resources h1 {
+    margin: 0;
+  }
+
+  .setting-pg .main-div {
+    margin-top: 30px;
+  }
+  .setting-pg .account-form {
+    margin-top: 30px;
+  }
+  .body-wrapper .content .section-padding {
+    padding: 10px;
+}
+.login-form {
+  width: 100%;
+  margin: 0px;
+  height: 100vh;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.login-header {
+  padding: 10px;
+  background: #fff;
+}
+
+.have-account p {
+  font-size: 12px;
+}
+
+.have-account a {
+  font-size: 12px;
+  padding: 10px 20px;
+  margin-left: 10px;
+}
+
+.logo {
+  width: 170px;
+  margin-right: 20px;
+}
+}
