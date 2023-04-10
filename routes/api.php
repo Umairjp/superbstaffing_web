@@ -20,19 +20,6 @@ use App\Http\Controllers\Api\ApiController;
 // });
 
 Route::group(['prefix' => 'auth'], function () {
-<<<<<<< Updated upstream
-  Route::post('register', [ApiController::class,'register']);
-  Route::post('login',  [ApiController::class,'login']);
-  Route::get('logout', [ApiController::class,'logout'] );
-  Route::post('forgot', [ApiController::class,'forgot']);
-  Route::post('forgot/submit', [ApiController::class,'forgot_submit']);
-  Route::post('social/login', [ApiController::class,'social_login']);
-  Route::post('refresh/token', [ApiController::class,'refresh']);
-  Route::get('details', [ApiController::class,'details']);
-  Route::post('/sendnotification', [ApiController::class,'sendNotification']);
-  Route::post('/testnot', [ApiController::class,'testnot']);
-
-=======
 
     Route::post('register', [AuthController::class, 'register']);
     Route::post("verify-otp", [AuthController::class, "verifyOTP"]);
@@ -45,15 +32,12 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('details', [ApiController::class, 'details']);
     Route::post('/sendnotification', [ApiController::class, 'sendNotification']);
     Route::post('/testnot', [ApiController::class, 'testnot']);
->>>>>>> Stashed changes
 });
 
 
 Route::fallback(function () {
     return response()->json(['status' => false, 'data' => [], 'error' => ['message' => 'Not Found!']], 404);
 });
-<<<<<<< Updated upstream
-=======
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -72,4 +56,3 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // });
 
 });
->>>>>>> Stashed changes
