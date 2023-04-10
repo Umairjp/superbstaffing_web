@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiController;
-use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +20,11 @@ use App\Http\Controllers\Api\AuthController;
 // });
 
 Route::group(['prefix' => 'auth'], function () {
-
-  Route::post('register', [AuthController::class,'register']);
-  Route::post('login',  [AuthController::class,'login']);
-  Route::post('logout', [AuthController::class,'logout'] );
-  Route::post('forgot', [AuthController::class,'forgotPassword']);
-  Route::post('reset-password', [AuthController::class,'resetPassword']);
+  Route::post('register', [ApiController::class,'register']);
+  Route::post('login',  [ApiController::class,'login']);
+  Route::get('logout', [ApiController::class,'logout'] );
+  Route::post('forgot', [ApiController::class,'forgot']);
+  Route::post('forgot/submit', [ApiController::class,'forgot_submit']);
   Route::post('social/login', [ApiController::class,'social_login']);
   Route::post('refresh/token', [ApiController::class,'refresh']);
   Route::get('details', [ApiController::class,'details']);
@@ -38,12 +36,4 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::fallback(function () {
   return response()->json(['status' => false, 'data' => [], 'error' => ['message' => 'Not Found!']], 404);
-});
-
-
-Route::group(['middleware' => ['auth:sanctum']], function () {
-  // protected routes go here
-  Route::get('/one', function(){
-    echo json_encode('jkhsd fkjhskdfjhskdjfhk');
-  });
 });

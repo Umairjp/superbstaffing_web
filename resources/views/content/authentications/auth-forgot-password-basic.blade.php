@@ -1,14 +1,34 @@
-@extends('layouts/blankLayout')
-
-@section('title', 'Forgot Password Basic - Pages')
-
-@section('page-style')
-<!-- Page -->
-<link rel="stylesheet" href="{{asset('assets/vendor/css/pages/page-auth.css')}}">
-@endsection
+@extends('layouts/main')
 
 @section('content')
-<div class="container-xxl">
+    <section class="login-pg" style="background-image:url({{ asset('front/assets/images/login-bg.png') }});">
+        <div class="login-header">
+            <div class="logo">
+                <img src="{{ asset('front/assets/images/logo.png') }}" alt="">
+            </div>
+
+        </div>
+        <div class="formwrap">
+            <div class="login-form forgot-pass">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto">
+                            <h1 class="heading text-center">Forgot Password</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipiscing</p>
+                            <div class="form-group">
+                                <input type="email" placeholder="Email" class="form-control" autocomplete="off" required>
+                                <i class="icon-Icon-material-email field-icon"></i>
+                            </div>
+                            <button class="btn btn-secondary form-login-btn w-100" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- <div class="container-xxl">
   <div class="authentication-wrapper authentication-basic container-p-y">
     <div class="authentication-inner py-4">
 
@@ -43,5 +63,5 @@
       <!-- /Forgot Password -->
     </div>
   </div>
-</div>
+</div> --}}
 @endsection

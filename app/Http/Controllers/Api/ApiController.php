@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-use Illuminate\Support\Facades\Auth;
+
 use App\{
-    Http\Controllers\Controller,
-    Http\Resources\UserResource
+  Http\Controllers\Controller,
+  Http\Resources\UserResource
 };
 
 use App\{
-    Models\User,
+  Models\User,
 };
 
 use Illuminate\Support\Facades\Hash;
@@ -23,364 +23,331 @@ use Kutia\Larafirebase\Facades\Larafirebase;
 
 class ApiController extends Controller
 {
-    public function testnot()
-    {
-        $n_title = 'Test Title';
-        $n_body = 'Test Body';
+  public function testnot(){
+    $n_title = 'Test Title';
+    $n_body = 'Test Body';
 
-        $notification = ['title' => $n_title, 'body' => $n_body];
-        $this->sendNotification(request()->merge($notification));
-        return;
+    $notification = ['title' => $n_title, 'body' => $n_body];
+    $this->sendNotification(request()->merge($notification));
+    return;
+  }
+
+  public function register(Request $request)
+  {
+    try{
+      $rules = [
+          'fullname' => 'required',
+          'email' => 'required|email|unique:users',
+          'city' => 'required',
+          'phone' => 'required',
+          'password' => 'required|confirmed|min:6',
+          'password_confirmation' => 'required|min:6'
+      ];
+
+      $validator = Validator::make($request->all(), $rules);
+      if ($validator->fails()) {
+        return response()->json(['status' => false, 'data' => [], 'error' => $validator->errors()]);
+      }
+
+
+      $user = new User;
+      $user->name = $request->fullname;
+      $user->email = $request->email;
+      $user->city = $request->city;
+      $user->phone = $request->phone;
+      $user->password = bcrypt($request->password);
+      $user->email_verified = 'Yes';
+
+      // ===== EMAIL AFTER ACTION ==========
+
+      $to = "admin@admin.com";
+      $subject = 'New User Registered';
+      $msg = nl2br("New User Registered\nName: ".$request->fullname."\nEmail: ".$request->email."\nPhone: ".$request->phone."");
+      //Sending Email To Customer
+      if($gs->is_smtp == 1)
+      {
+        $data = [
+            'to' => $to,
+            'subject' => $subject,
+            'body' => $msg,
+        ];
+
+        $mailer = new GeniusMailer();
+        $mailer->sendCustomMail($data);
+      }
+      else
+      {
+        $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
+        mail($to,$subject,$msg,$headers);
+      }
+        // ===== EMAIL AFTER ACTION ENDS =======
+
+      $user->save();
+
+      $token = auth()->login($user);
+
+      // $this->sendNotification(['title' => 'Test Title', 'body' => 'Test Body']);
+      // $this->sendNotification()->response()->json( ['title' => 'Test Title', 'body' => 'Test Body']);
+
+      return response()->json(['status' => true, 'data' => ['token' => $token, 'user' => new UserResource($user)], 'error' => []]);
     }
-
-    public function register(Request $request)
-    {
-        try {
-            $rules = [
-                'company_name' => 'required',
-                'company_phone' => 'required',
-                'email' => 'required|email',
-                'password' => 'required',
-                'zip_code' => 'required',
-                'country' => 'required',
-                'acount_type' => 'required',
-                'about' => 'required',
-                'industry' => 'required',
-                'type' =>   'required',
-                'specialities' => 'required',
-                'founded' => 'required'
-            ];
-
-            $validated = Validator::make($request->all(), $rules);
-            if ($validated->fails()) {
-                return response()->json(['status' => false, 'data' => [], 'error' => $validated->errors()]);
-            }
-
-
-            // $user = new User;
-            // $user->name = $request->fullname;
-            // $user->email = $request->email;
-            // $user->city = $request->city;
-            // $user->phone = $request->phone;
-            // $user->password = bcrypt($request->password);
-            // $user->email_verified = 'Yes';
-
-            // // ===== EMAIL AFTER ACTION ==========
-
-            // $to = "admin@admin.com";
-            // $subject = 'New User Registered';
-            // $msg = nl2br("New User Registered\nName: " . $request->fullname . "\nEmail: " . $request->email . "\nPhone: " . $request->phone . "");
-            // //Sending Email To Customer
-            // if ($gs->is_smtp == 1) {
-            //     $data = [
-            //         'to' => $to,
-            //         'subject' => $subject,
-            //         'body' => $msg,
-            //     ];
-
-            //     $mailer = new GeniusMailer();
-            //     $mailer->sendCustomMail($data);
-            // } else {
-            //     $headers = "From: " . $gs->from_name . "<" . $gs->from_email . ">";
-            //     mail($to, $subject, $msg, $headers);
-            // }
-            // // ===== EMAIL AFTER ACTION ENDS =======
-
-            // $user->save();
-
-            // $token = auth()->login($user);
-
-            // $this->sendNotification(['title' => 'Test Title', 'body' => 'Test Body']);
-            // $this->sendNotification()->response()->json( ['title' => 'Test Title', 'body' => 'Test Body']);
-
-            // $user = User::create([
-            //     'company_name'          => $request->companyName,
-            //     'company_phone'         => $request->companyPhone,
-            //     'email'                 => $request->email,
-            //     'password'              => Hash::make($request->password),
-            //     'zip_code'              => $request->zipCode,
-            //     'country'               => $request->country,
-            //     'acount_type'           => '2',
-            //     'about'                 => $request->about,
-            //     'industry'              => $request->industry,
-            //     'type'                  => $request->type,
-            //     'specialities'           => $request->specialist,
-            //     'founded'               => $request->founded,
-            // ]);
-            $user = new User;
-            $user->company_name     = $request->company_name;
-            $user->company_phone    = $request->company_phone;
-            $user->email            = $request->email;
-            $user->password         = Hash::make($request->password);
-            $user->zip_code         = $request->zip_code;
-            $user->country          = $request->country;
-            $user->acount_type      = $request->acount_type;
-            $user->about            = $request->about;
-            $user->industry         = $request->industry;
-            $user->type             = $request->type;
-            $user->specialities     = $request->specialities;
-            $user->founded          = $request->founded;
-
-            $user->save();
-            $token = $user->createToken('auth_token')->plainTextToken;
-
-
-            return response()->json(['status' => true, 'data' => ['token' => $token, 'user' => new UserResource($user)], 'error' => []]);
-        } catch (\Exception $e) {
-            return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
-        }
+    catch(\Exception $e){
+      return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
     }
+  }
 
 
-    /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function login(Request $request)
-    {
-        try {
-            $rules = [
-                'email' => 'required',
-                'password' => 'required',
+  /**
+   * Get a JWT via given credentials.
+   *
+   * @return \Illuminate\Http\JsonResponse
+   */
+  public function login(Request $request)
+  {
+    try{
+      $rules = [
+          'email' => 'required',
+          'password' => 'required',
+          'device_token' => 'required'
+      ];
 
-            ];
-            //'device_token' => 'required'
-            $validator = Validator::make($request->all(), $rules);
-            if ($validator->fails()) {
-                return response()->json(['status' => false, 'data' => [], 'error' => $validator->errors()]);
-            }
+      $validator = Validator::make($request->all(), $rules);
+      if ($validator->fails()) {
+        return response()->json(['status' => false, 'data' => [], 'error' => $validator->errors()]);
+      }
 
-            $credentials = request(['email', 'password']);
+      $credentials = request(['email', 'password']);
 
-            if (!$token = auth()->attempt($credentials)) {
-                return response()->json(['status' => false, 'data' => [], 'error' => ["message" => "Email / password didn't match."]]);
-            }
+      if (! $token = auth()->attempt($credentials)) {
+        return response()->json(['status' => false, 'data' => [], 'error' => ["message" => "Email / password didn't match."]]);
+      }
 
-            if (auth()->user()->email_verified == 'No') {
-                auth()->logout();
-                return response()->json(['status' => false, 'data' => [], 'error' => ["message" => 'Your Email is not Verified!']]);
-            }
+      if(auth()->user()->email_verified == 'No')
+      {
+        auth()->logout();
+        return response()->json(['status' => false, 'data' => [], 'error' => ["message" => 'Your Email is not Verified!']]);
+      }
 
-            if (auth()->user()->ban == 1) {
-                auth()->logout();
-                return response()->json(['status' => false, 'data' => [], 'error' => ["message" => 'Your Account Has Been Banned.']]);
-            }
+      if(auth()->user()->ban == 1)
+      {
+        auth()->logout();
+        return response()->json(['status' => false, 'data' => [], 'error' => ["message" => 'Your Account Has Been Banned.']]);
+      }
 
-            $user = User::findorfail(auth()->user()->id);
-            $user->device_token = $request->device_token;
-            $user->save();
+      $user = User::findorfail(auth()->user()->id);
+      $user->device_token = $request->device_token;
+      $user->save();
 
-            $user->tokens()->delete();
-            $token = $user->createToken('auth_token')->plainTextToken;
-            return response()->json(['status' => true, 'data' => ['token' => $token, 'user' => new UserResource(auth()->user())], 'error' => []]);
-        } catch (\Exception $e) {
-            return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
-        }
+      return response()->json(['status' => true, 'data' => ['token' => $token, 'user' => new UserResource(auth()->user())], 'error' => []]);
     }
+    catch(\Exception $e){
+      return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
+    }
+  }
 
-    /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function social_login(Request $request)
-    {
-        try {
-            $rules = [
-                'name' => 'required',
-                'email' => 'required'
-            ];
+  /**
+   * Get a JWT via given credentials.
+   *
+   * @return \Illuminate\Http\JsonResponse
+   */
+  public function social_login(Request $request)
+  {
+    try{
+      $rules = [
+          'name' => 'required',
+          'email' => 'required'
+      ];
 
-            $validator = Validator::make($request->all(), $rules);
-            if ($validator->fails()) {
-                return response()->json(['status' => false, 'data' => [], 'error' => $validator->errors()]);
-            }
+      $validator = Validator::make($request->all(), $rules);
+      if ($validator->fails()) {
+        return response()->json(['status' => false, 'data' => [], 'error' => $validator->errors()]);
+      }
 
-            $user = User::where('email', '=', $request->email)->first();
+      $user = User::where('email','=',$request->email)->first();
 
-            if (!$user) {
+      if(!$user){
 
-                $rules = [
-                    'email' => 'email|unique:users'
-                ];
+                  $rules = [
+                      'email' => 'email|unique:users'
+                  ];
 
-                $validator = Validator::make($request->all(), $rules);
-                if ($validator->fails()) {
+                  $validator = Validator::make($request->all(), $rules);
+                  if ($validator->fails()) {
                     return response()->json(['status' => false, 'data' => [], 'error' => $validator->errors()]);
-                }
+                  }
 
-                $user = new User;
-                $user->name = $request->name;
-                $user->email = $request->email;
-                $user->email_verified = 'Yes';
-                $user->affilate_code = md5($request->email);
-                $user->save();
+                 $user = new User;
+                 $user->name = $request->name;
+                 $user->email = $request->email;
+                 $user->email_verified = 'Yes';
+                 $user->affilate_code = md5($request->email);
+                 $user->save();
 
-                $token = auth()->login($user);
-                return response()->json(['status' => true, 'data' => ['token' => $token], 'error' => []]);
-            }
+                 $token = auth()->login($user);
+                 return response()->json(['status' => true, 'data' => ['token' => $token], 'error' => []]);
 
-            $userToken = JWTAuth::fromUser($user);
+      }
 
-            if ($user->email_verified == 'No') {
-                return response()->json(['status' => false, 'data' => [], 'error' => ["message" => 'Your Email is not Verified!']]);
-            }
+      $userToken = JWTAuth::fromUser($user);
 
-            if ($user->ban == 1) {
-                return response()->json(['status' => false, 'data' => [], 'error' => ["message" => 'Your Account Has Been Banned.']]);
-            }
+      if($user->email_verified == 'No')
+      {
+        return response()->json(['status' => false, 'data' => [], 'error' => ["message" => 'Your Email is not Verified!']]);
+      }
 
-            auth()->login($user);
+      if($user->ban == 1)
+      {
+        return response()->json(['status' => false, 'data' => [], 'error' => ["message" => 'Your Account Has Been Banned.']]);
+      }
 
-            return response()->json(['status' => true, 'data' => ['token' => $userToken,  'user' => new UserResource(auth()->user())], 'error' => []]);
-        } catch (\Exception $e) {
-            return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
-        }
+      auth()->login($user);
+
+      return response()->json(['status' => true, 'data' => ['token' => $userToken,  'user' => new UserResource(auth()->user())], 'error' => []]);
+
     }
-
-
-    /**
-     * Get the authenticated User.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function details()
-    {
-        try {
-            return response()->json(['status' => true, 'data' => new UserResource(auth()->user()), 'error' => []]);
-        } catch (\Exception $e) {
-            return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
-        }
+    catch(\Exception $e){
+      return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
     }
+  }
 
-    /**
-     * Log the user out (Invalidate the token).
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function logout()
-    {
-        //auth()->user()->tokens()->delete();
-        //auth()->logout();
-        $user = Auth::user();
-        $user->tokens()->delete();
-        return response()->json(['status' => true, 'data' => ['message' => 'Successfully logged out.'], 'error' => []]);
+
+  /**
+   * Get the authenticated User.
+   *
+   * @return \Illuminate\Http\JsonResponse
+   */
+  public function details()
+  {
+    try{
+      return response()->json(['status' => true, 'data' => new UserResource(auth()->user()), 'error' => []]);
     }
-
-    /**
-     * Refresh a token.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function refresh()
-    {
-        return $this->respondWithToken(auth()->refresh());
+    catch(\Exception $e){
+      return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
     }
+  }
 
-    /**
-     * Get the token array structure.
-     *
-     * @param  string $token
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    protected function respondWithToken($token)
-    {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 300
-        ]);
-    }
+  /**
+   * Log the user out (Invalidate the token).
+   *
+   * @return \Illuminate\Http\JsonResponse
+   */
+  public function logout()
+  {
+      auth()->logout();
+      return response()->json(['status' => true, 'data' => ['message' => 'Successfully logged out.'], 'error' => []]);
+  }
 
-    public function forgot(Request $request)
-    {
+  /**
+   * Refresh a token.
+   *
+   * @return \Illuminate\Http\JsonResponse
+   */
+  public function refresh()
+  {
+      return $this->respondWithToken(auth()->refresh());
+  }
 
-        //$request->validated();
+  /**
+   * Get the token array structure.
+   *
+   * @param  string $token
+   *
+   * @return \Illuminate\Http\JsonResponse
+   */
+  protected function respondWithToken($token)
+  {
+      return response()->json([
+          'access_token' => $token,
+          'token_type' => 'bearer',
+          'expires_in' => auth()->factory()->getTTL() * 300
+      ]);
+  }
 
-            $status = Password::sendResetLink(
-                $request->only('email')
-            );
-            if ($status == Password::RESET_LINK_SENT)
-                $message = "Mail send successfully";
-            else
-                $message = "Email could not be sent to this email address";
+ public function forgot(Request $request){
 
+     $user = User::where('email',$request->email)->first();
+     if($user)
+     {
 
-        $user = User::where('email', $request->email)->first();
-        if ($user) {
+      $token = Str::random(6);
 
-        //     $token = Str::random(6);
+      $subject = "Reset Password Request";
+      $msg = "Your Forgot Password Token: ".$token;
+      $user->reset_token = $token;
+      $user->update();
 
-        //     $subject = "Reset Password Request";
-        //     $msg = "Your Forgot Password Token: " . $token;
-        //     $user->reset_token = $token;
-        //     $user->update();
+      $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
+      mail($request->email,$subject,$msg,$headers);
 
-        //     $headers = "From: " . $gs->from_name . "<" . $gs->from_email . ">";
-        //     mail($request->email, $subject, $msg, $headers);
+      return response()->json(['status' => true, 'data' => ['user_id' => $user->id,'reset_token' => $user->reset_token], 'error' => []]);
 
-            return response()->json(['status' => true, 'data' => ['user_id' => $user->id, 'reset_token' => $user->reset_token], 'error' => []]);
-        } else {
-            return response()->json(['status' => false, 'data' => [], 'error' => 'Account not found']);
-        }
-    }
+     }
+     else
+     {
+          return response()->json(['status' => false, 'data' => [], 'error' => 'Account not found']);
+     }
 
-
-    public function forgot_submit(Request $request)
-    {
-
-        if ($request->new_password != $request->confirm_password) {
-            return response()->json(['status' => false, 'data' => [], 'error' => 'New password & confirm password not match']);
-        }
-
-        $user = User::where('id', $request->user_id)->where('reset_token', $request->reset_token)->first();
-        if ($user) {
-
-            $password = Hash::make($request->new_password);
-            $user->password = $password;
-            $user->reset_token = null;
-            $user->update();
-            return response()->json(['status' => true, 'data' => ['message' => 'Password Changed Successfully'], 'error' => []]);
-        } else {
-            return response()->json(['status' => false, 'data' => [], 'error' => 'Something is wrong']);
-        }
-    }
+  }
 
 
-    public function sendNotification(Request $request)
-    {
+  public function forgot_submit(Request $request){
 
-        $rules =
-            [
-                'title' => 'required',
-                'body' => 'required'
-            ];
-        $validator = Validator::make($request->all(), $rules);
+      if($request->new_password != $request->confirm_password)
+      {
+          return response()->json(['status' => false, 'data' => [], 'error' => 'New password & confirm password not match']);
+      }
 
-        if ($validator->fails()) {
-            return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
-        }
+      $user = User::where('id',$request->user_id)->where('reset_token',$request->reset_token)->first();
+      if($user)
+      {
 
-        try {
+         $password = Hash::make($request->new_password);
+         $user->password = $password;
+         $user->reset_token = null;
+         $user->update();
+         return response()->json(['status' => true, 'data' => ['message' => 'Password Changed Successfully'], 'error' => []]);
 
-            $userid = auth()->user()->id;
-            $device_tokens = User::where('id', '=', $userid)->select('device_token')->get();
-            $device_token = $device_tokens[0]['device_token'];
-            // $test_device_token = 'fOGlCIjDQGAxLcYKyb3W5g:APA91bHkkZ5BZ3eEnQpjNCxV7fq66Rm6aGh1mLUijRfCJ6jqGtydoIHl2KCmE21VF6mrRjXJ9MpaVTMFLIdq6x5RQsZ3pLCI_3jAlG5qwhr4UPT96xWfwPoM7_QvGyUE91Y0uD45KS0J';
-            $test_device_token = 'fOGlCIjDQGAxLcYKyb3W5g:APA91bF8ipDjrbGUHkkdjyCAGnVHgw_O_RJ_iyeGrjvZLe0SFtkBndZUxPsQ2nArICorV6jpU_wMB9BBht13FWqBfcwlHRJxwzETH1dMyKE1MYc-yFx2F_OEfccnZOK34OXLbbyivd6S';
-            $title = $request->title;
-            $body = $request->body;
+      }else{
+          return response()->json(['status' => false, 'data' => [], 'error' => 'Something is wrong']);
+      }
+  }
 
 
-            Larafirebase::withTitle($title)
-                ->withBody($body)
-                ->sendMessage($test_device_token);
+  public function sendNotification(Request $request)
+  {
 
-            return response()->json(['status' => true, 'data' => ['message' => 'Successful', 'token' => $test_device_token], 'error' => []]);
-        } catch (\Exception $e) {
-            return response()->json(['status' => true, 'data' => ['message' => 'Error'], 'error' => []]);
-        }
-    }
+      $rules =
+      [
+          'title'=>'required',
+          'body'=>'required'
+      ];
+      $validator = Validator::make($request->all(), $rules);
+
+      if ($validator->fails()) {
+        return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
+      }
+
+      try{
+
+        $userid = auth()->user()->id;
+        $device_tokens = User::where('id', '=', $userid)->select('device_token')->get();
+        $device_token = $device_tokens[0]['device_token'];
+        // $test_device_token = 'fOGlCIjDQGAxLcYKyb3W5g:APA91bHkkZ5BZ3eEnQpjNCxV7fq66Rm6aGh1mLUijRfCJ6jqGtydoIHl2KCmE21VF6mrRjXJ9MpaVTMFLIdq6x5RQsZ3pLCI_3jAlG5qwhr4UPT96xWfwPoM7_QvGyUE91Y0uD45KS0J';
+        $test_device_token= 'fOGlCIjDQGAxLcYKyb3W5g:APA91bF8ipDjrbGUHkkdjyCAGnVHgw_O_RJ_iyeGrjvZLe0SFtkBndZUxPsQ2nArICorV6jpU_wMB9BBht13FWqBfcwlHRJxwzETH1dMyKE1MYc-yFx2F_OEfccnZOK34OXLbbyivd6S';
+          $title = $request->title;
+          $body = $request->body;
+
+
+          Larafirebase::withTitle($title)
+              ->withBody($body)
+              ->sendMessage($test_device_token);
+
+         return response()->json(['status' => true, 'data' => ['message' => 'Successful', 'token' => $test_device_token], 'error' => []]);
+
+
+      }catch(\Exception $e){
+         return response()->json(['status' => true, 'data' => ['message' => 'Error'], 'error' => []]);
+      }
+  }
+
 }
