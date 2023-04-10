@@ -1,52 +1,30 @@
 /* Screen 1600 */
 
 @media screen and (max-width: 1600px) {
-  header.header-main {
-    left: 270px;
-    background: #cbd3fc;
-  }
+    .dashboard-request .btn-blue {
+    margin-left: 10px;
+}
+  /*header.header-main {*/
+  /*  left: 270px;*/
+  /*}*/
 
-  .sidebar {
-    width: 270px;
-  }
+  /*.sidebar {*/
+  /*  width: 270px;*/
+  /*}*/
 
-  .body-wrapper {
-    margin: 0 0 0 270px;
-  }
+
 
   .body-wrapper .content .section-padding {
     padding: 30px;
   }
 
-  .dashboard-table th {
-    padding: 20px 20px 0 20px;
-  }
-
-  .dashboard-table td {
-    padding: 20px 20px 0 20px;
-  }
-
-  .dashboard-messages {
-    width: 400px;
-    margin-left: -12px;
-  }
-
-  .dashboard-request {
-    width: 400px;
-  }
-
-  .dashboard-interviews {
-    width: 400px;
-    margin-left: 8px;
-  }
+ 
+ 
 
   .mt-50 {
     margin-top: 30px !important;
   }
 
-  .profile-pg #myTab {
-    width: 52%;
-  }
 
   .nav-tabs .nav-item {
     margin-bottom: 0px;
@@ -60,39 +38,15 @@
     padding: 0;
   }
 
-  .jobs-pg .create-new-job {
-    padding: 20px 30px;
-  }
+  
 
-  .jobs-pg .create-new-job input {
-    width: 380px;
-  }
-
-  .jobs-pg .create-new-job .short {
-    width: 183px;
-  }
-
-  .jobs-pg .create-new-job textarea {
-    width: 773px;
-  }
-
-  .jobs-pg .create-new-job .btn {
-    width: 774px;
-  }
-
-  .jobs-pg .job-posted {
-    width: 427px;
-    padding: 20px 16px;
-  }
 
   .jobs-pg .job-posted .job-posted-box {
     padding: 14px 10px;
     margin: 10px 10px;
   }
 
-  .jobs-pg .current-employees {
-    padding: 30px 10px;
-  }
+  
 
   .jobs-pg .employee {
     padding: 20px 10px;
@@ -117,11 +71,6 @@
     margin-top: 20px;
   }
 
-  .messages-pg .chat-section .sent-items {
-    width: 760px;
-    bottom: 4%;
-  }
-
   .employees-table {
     padding: 25px 20px;
   }
@@ -134,12 +83,9 @@
     margin-left: 30px;
   }
 
-  .setting-pg .account-form {
-    margin-left: 60px;
-  }
-
+ 
   .setting-pg .main-div {
-    margin-left: 60px;
+    /*margin-left: 60px;*/
     overflow: hidden;
   }
 
@@ -169,21 +115,65 @@
   .setting-pg .main-search .form-control {
     height: 57px;
   }
-  .login-form {
-    width: 470px;
-  }
+ 
   .login-pg {
     height: 100vh;
     background-size: cover;
   }
+  .login-form,
+  .login-form.forgot-pass {
+    /*height: 100%;*/
+    margin-top: 0;
+    padding: 20px 10px;
+    /*margin-top: -30px;*/
+  }
+  .login-form .remember-checkbox p {
+    font-size: 14px;
 }
-
-/* Screen 1440px */
-@media screen and (max-width: 1440px) {
-  .main-search .form-control {
-    width: 600px;
+.login-form .anchor-primary {
+    font-size: 14px;
+}
+  .login-form .form-group {
+    margin-bottom: 12px;
   }
 
+  .login-form .heading {
+    font-size: 26px;
+  }
+  .login-header {
+    padding: 20px 40px;
+  }
+
+  .login-form p {
+    margin-bottom: 20px;
+  }
+
+  .login-form .login-with {
+    margin: 10px 0;
+  }
+
+  .login-form .other-login {
+    margin-top: 14px;
+  }
+
+  .login-form .my-lg-30 {
+    margin: 10px;
+  }
+  .login-form.forgot-pass {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 1400px) {
+    .d-xxl-flex {
+        display: flex;
+    }
+}
+/* Screen 1440px */
+@media screen and (max-width: 1440px) {
+ .dashboard-request .content-details {
+    display: block;
+}
   .dashboard-table .action .nav-link {
     font-size: 14px;
   }
@@ -192,50 +182,22 @@
     font-size: 14px;
   }
 
-  .dashboard-table td:first-child {
-    width: 27%;
-  }
+  
 
   .dashboard-table .para {
     width: 100%;
   }
 
-  .dashboard-messages {
-    width: 360px;
-  }
 
-  .dashboard-request {
-    width: 360px;
-  }
-
-  .dashboard-interviews {
-    width: 360px;
-  }
 
   .dashboard-request .btn-blue {
-    margin-left: 0;
+    margin-top: 4px;
+    display: inline-block;
   }
 
-  .jobs-pg .create-new-job input {
-    width: 330px;
-  }
+ 
 
-  .jobs-pg .create-new-job .short {
-    width: 159px;
-  }
-
-  .jobs-pg .create-new-job textarea {
-    width: 670px;
-  }
-
-  .jobs-pg .create-new-job .btn {
-    width: 670px;
-  }
-
-  .jobs-pg .job-posted {
-    width: 360px;
-    padding: 20px 0px;
-  }
+ 
 
   .jobs-pg .dashboard-interviews {
     margin-left: -10px;
@@ -255,25 +217,12 @@
     font-size: 12px;
   }
 
-  .messages-pg .chat-section .sent-items {
-    width: 650px;
-  }
+ 
 
-  .recent-payment {
-    width: 360px;
-  }
-
-  .current-payment {
-    width: 360px;
-  }
-
-  .setting-pg .account-form {
-    margin-left: 100px;
-  }
 
   .setting-pg .main-div {
-    margin-left: 100px;
-    padding: 30px 30px;
+    /*margin-left: 100px;*/
+    /*padding: 30px 30px;*/
   }
 
   .security-settings .d-flex:last-child .form-control {
@@ -334,51 +283,12 @@
 /* Screen 1366 */
 
 @media screen and (max-width: 1366px) {
-  .dashboard-table td,
-  .dashboard-table th {
-    padding: 20px 12px 0 12px;
-  }
+ 
 
-  .dashboard-messages {
-    width: 330px;
-    padding: 20px 12px;
-  }
-
-  .dashboard-request {
-    width: 330px;
-    margin-left: -5px;
-    padding: 20px 12px;
-  }
-
-  .dashboard-interviews {
-    width: 330px;
-    margin-left: 0px;
-    padding: 20px 12px;
-  }
-
-  .main-search .form-control {
-    width: 550px;
-  }
-
-  .header-main .top-bar .navbar-right .nav-menu .dropdown {
-    margin-left: 130px;
-  }
-
-  .jobs-pg .create-new-job input {
-    width: 300px;
-  }
-
-  .jobs-pg .create-new-job .short {
-    width: 142px;
-  }
-
-  .jobs-pg .create-new-job textarea {
-    width: 615px;
-  }
-
-  .jobs-pg .create-new-job .btn {
-    width: 615px;
-  }
+.dashboard-interviews .content-details .time {
+    margin-left: 10px;
+}
+ 
 
   .jobs-pg .current-employees .d-flex h2 {
     font-size: 10px;
@@ -402,9 +312,7 @@
     font-size: 16px;
   }
 
-  .jobs-pg .job-posted {
-    width: 340px;
-  }
+ 
 
   .jobs-pg .dashboard-interviews {
     margin-left: -3px;
@@ -415,28 +323,18 @@
     padding-right: 8px;
     margin-right: 8px;
   }
-  .messages-pg .chat-section .sent-items {
-    width: 600px;
-  }
 
-  .recent-payment {
-    width: 340px;
-    padding: 20px 20px;
-  }
+  /*.recent-payment {*/
+  /*  width: 340px;*/
+  /*  padding: 20px 20px;*/
+  /*}*/
 
-  .current-payment {
-    width: 340px;
-    padding: 20px 20px;
-  }
 
   .payment-table .p-title {
     font-size: 22px;
   }
 
-  .recent-payment .r-title {
-    font-size: 20px;
-  }
-
+ 
   .recent-payment .recent-right-1 td {
     font-size: 16px;
   }
@@ -535,10 +433,10 @@
     font-size: 14px;
   }
   /* sidebar */
-  .sidebar .logout-btn {
-    position: absolute;
-    bottom: -10%;
-  }
+  /*.sidebar .logout-btn {*/
+  /*  position: absolute;*/
+  /*  bottom: -10%;*/
+  /*}*/
 
   .sidebar .sidebar-logo {
     text-align: center;
@@ -547,29 +445,19 @@
 
   .sidebar .side-menu {
     background: none;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
   }
-  .header-main .top-bar .navbar-right .nav-menu .dropdown {
-    margin-left: 120px;
-  }
-
-  .header-main .top-bar .navbar-right .nav-menu .dropdown {
-    margin-left: 120px;
-  }
+ 
 }
 
 @media screen and (max-width: 1280px) {
-  .sidebar .logout-btn {
-    position: absolute;
-    bottom: 10%;
-  }
-  .header-main .top-bar .navbar-right .nav-menu {
-    margin-right: -50px;
-  }
+  /*.sidebar .logout-btn {*/
+  /*  position: absolute;*/
+  /*  bottom: 10%;*/
+  /*}*/
 
-  .header-main .top-bar .navbar-right .nav-menu .dropdown {
-    margin-left: 130px;
-  }
+
+  
 
   .body-wrapper .content .section-padding {
     padding: 20px;
@@ -603,9 +491,7 @@
     font-size: 12px;
   }
 
-  .dashboard-messages {
-    width: 310px;
-  }
+  
 
   .dashboard-messages .heading {
     font-size: 18px;
@@ -623,9 +509,7 @@
     font-size: 18px;
   }
 
-  .dashboard-request {
-    width: 310px;
-  }
+
 
   .dashboard-request .content-details h1 {
     font-size: 14px;
@@ -635,9 +519,7 @@
     font-size: 12px;
   }
 
-  .dashboard-interviews {
-    width: 310px;
-  }
+
 
   .dashboard-interviews .heading {
     font-size: 18px;
@@ -651,21 +533,7 @@
     font-size: 12px;
   }
 
-  .jobs-pg .create-new-job input {
-    width: 280px;
-  }
-
-  .jobs-pg .create-new-job .short {
-    width: 133px;
-  }
-
-  .jobs-pg .create-new-job textarea {
-    width: 575px;
-  }
-
-  .jobs-pg .create-new-job .btn {
-    width: 575px;
-  }
+ 
 
   .jobs-pg .current-employees .content h1 {
     font-size: 12px;
@@ -685,10 +553,6 @@
     font-size: 14px;
   }
 
-  .jobs-pg .job-posted {
-    width: 320px;
-  }
-
   .job-posted .sub-title {
     font-size: 14px;
   }
@@ -706,9 +570,6 @@
     font-size: 10px;
   }
 
-  .messages-pg .chat-section .sent-items {
-    width: 555px;
-  }
 
   .messages-pg .chat-title {
     font-size: 30px;
@@ -750,9 +611,9 @@
     font-size: 14px;
   }
 
-  .recent-payment {
-    width: 310px;
-  }
+  /*.recent-payment {*/
+  /*  width: 310px;*/
+  /*}*/
 
   .current-payment .custom-dsb h1 {
     font-size: 14px;
@@ -762,12 +623,8 @@
     font-size: 10px;
   }
 
-  .current-payment {
-    width: 310px;
-  }
-  .setting-pg .nav-pills .nav-link {
-    width: 310px;
-  }
+
+ 
 
   .security-settings .d-flex:last-child .form-control {
     width: 176px;
@@ -814,6 +671,11 @@
   }
 }
 
+/*@media (max-width: 1200px) {*/
+/*     header.header-main {*/
+/*        left: 0;*/
+/*      }*/
+/*}*/
 /* Screen 991 */
 
 @media screen and (min-width: 991px) {
@@ -846,11 +708,7 @@
     margin: 0;
   }
 
-  .main-search .form-control {
-    width: 400px;
-    margin-left: 60px;
-  }
-
+ 
   .main-search.form-group i {
     left: 70px;
     top: 14px;
@@ -860,10 +718,7 @@
     left: 110px;
   }
 
-  .main-search .form-control:focus,
-  .main-search .form-control:valid {
-    padding-left: 40px;
-  }
+ 
 
   .responsive-sidebar .sidebar .sidebar-logo .logo {
     margin-top: 60px;
@@ -891,18 +746,13 @@
   }
   /* Dashboard */
 
-  .dashboard-table {
-    width: 970px;
-  }
+ 
 
   .dashboard-table th {
     white-space: nowrap;
   }
 
-  .dashboard-messages {
-    width: 100%;
-    margin: auto;
-  }
+
 
   .table-responsive {
     border-radius: 10px;
@@ -962,34 +812,15 @@
     position: relative;
   }
 
-  .main-search .form-control {
-    width: 270px;
-    margin-left: 40px;
-  }
+ 
 
   .profile-pg .jobs {
-    width: 698px;
+    /*width: 698px;*/
     margin: 20px 0;
   }
 
-  .profile-pg #myTab {
-    width: 62%;
-  }
+ 
 
-  .jobs-pg .create-new-job input {
-    width: 332px;
-  }
-  .jobs-pg .create-new-job .short {
-    width: 159px;
-  }
-
-  .jobs-pg .create-new-job textarea {
-    width: 668px;
-  }
-
-  .jobs-pg .create-new-job .btn {
-    width: 668px;
-  }
 
   .jobs-pg .job-posted {
     width: 100%;
@@ -1089,9 +920,9 @@
   }
 
   .setting-pg .nav-pills .nav-link {
-    width: 190px;
+    /*width: 190px;*/
     padding: 10px;
-    height: 67px;
+    /*height: 67px;*/
   }
 
   .setting-pg .account-form {
@@ -1176,12 +1007,7 @@
     top: -23px;
   }
 
-  .main-search .form-control {
-    width: 130px;
-    margin-left: 10px;
-    margin-top: -18px;
-  }
-
+ 
   .main-search .input-label {
     left: 50px;
   }
@@ -1208,9 +1034,7 @@
     margin-left: -8px;
   }
 
-  .header-main .top-bar .navbar-right .nav-menu .dropdown {
-    margin-left: 0px;
-  }
+  
 
   .header-main .top-bar .navbar-right .nav-menu .notification:before {
     height: 40px;
@@ -1245,16 +1069,14 @@
     left: 20px;
   }
 
-  .profile-pg #myTab {
-    width: 90%;
-  }
+ 
 
   .profile-pg .nav-link {
     margin-right: 20px;
   }
 
   .profile-pg .jobs {
-    width: 280px;
+    /*width: 280px;*/
     margin: 20px 0;
     overflow: auto;
   }
@@ -1288,21 +1110,8 @@
     margin: auto;
     margin-bottom: 10px;
   }
-  .jobs-pg .create-new-job input {
-    width: 250px;
-  }
+  
 
-  .jobs-pg .create-new-job .short {
-    width: 250px;
-  }
-
-  .jobs-pg .create-new-job textarea {
-    width: 250px;
-  }
-
-  .body-wrapper .content .btn {
-    width: 250px;
-  }
 
   .job-posted .sub-title {
     font-size: 14px;
@@ -1372,9 +1181,7 @@
     height: 588px;
   }
 
-  .messages-pg .chat-section .sent-items {
-    width: 225px;
-  }
+
   .body-wrapper .content .banner-heading {
     font-size: 30px;
   }
@@ -1478,7 +1285,7 @@
 
   .setting-pg .main-div {
     margin-left: 0;
-    padding: 20px;
+    /*padding: 20px;*/
   }
 
   .setting-pg .resources h1 {
@@ -1516,7 +1323,6 @@
 
   .billing-box {
     height: 160px;
-    280px
   }
 
   .next-payment .right p {
@@ -1575,33 +1381,33 @@
   }
   .body-wrapper .content .section-padding {
     padding: 10px;
-}
-.login-form {
-  width: 100%;
-  margin: 0px;
-  height: 100vh;
-  padding: 0;
-  box-shadow: none;
-  border-radius: 0;
-}
+  }
+  .login-form {
+    width: 100%;
+    margin: 0px;
+    height: 100vh;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
 
-.login-header {
-  padding: 10px;
-  background: #fff;
-}
+  .login-header {
+    padding: 10px;
+    background: #fff;
+  }
 
-.have-account p {
-  font-size: 12px;
-}
+  .have-account p {
+    font-size: 12px;
+  }
 
-.have-account a {
-  font-size: 12px;
-  padding: 10px 20px;
-  margin-left: 10px;
-}
+  .have-account a {
+    font-size: 12px;
+    padding: 10px 20px;
+    margin-left: 10px;
+  }
 
-.logo {
-  width: 170px;
-  margin-right: 20px;
-}
+  .logo {
+    width: 170px;
+    margin-right: 20px;
+  }
 }

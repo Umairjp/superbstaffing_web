@@ -4,11 +4,11 @@
     <section class="section-padding profile-pg">
         <div class="profile-btn">
             <h1 class="banner-heading">Profile</h1>
-            <a href="{{ url('/profile') }}edit-profile" class="give-btn btn btn-primary">Edit profile</a>
+            <a href="#" class="btn btn-primary">Edit profile</a>
         </div>
-        <div class="card" style="background-image: url({{ asset('front/assets/images/profile-banner.png') }});">
+        <div class="cover-photo" style="background-image: url({{ asset('front/assets/images/profile-banner.png') }});">
             <input class="custom-upload-icon" type="file" name="upload-picture" id="upload-picture">
-            <div class="card-body user-body">
+            <div class="user-body">
                 <div class="user-profile">
                     <div class="profile">
                         <img class="" src="{{ asset('front/assets/images/profile.png') }}" alt="">
@@ -17,10 +17,10 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid mt-70">
+       
             <div class="row">
                 <div class="col-lg-8">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <ul class="nav nav-tabs verticle-nav" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
                                 aria-controls="home" aria-selected="true">Home</a>
@@ -319,7 +319,9 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="dashboard-messages">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dashboard-messages">
                         <h1 class="heading">Messages</h1>
                         <div class="messages-box">
                             <div class="messages">
@@ -405,8 +407,10 @@
 
                         </div>
                     </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        
     </section>
 @endsection

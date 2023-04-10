@@ -63,12 +63,14 @@ $(function () {
     $(".toggle-btn .icon-menu").toggleClass("active");
     if ($(this).hasClass("active")) {
       $(this).removeClass("active");
+      $("body").removeClass("baractive");
       $(".sidebar").css("left", "-100%");
       $(".body-wrapper").css("margin-left", "0px").removeClass("bg-overlay");
     } else {
       $(this).addClass("active");
       $(".sidebar").css("left", "0px");
       $(".body-wrapper").addClass("bg-overlay");
+      $("body").addClass("baractive");
     }
   });
 });

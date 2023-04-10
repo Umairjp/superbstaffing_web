@@ -2,12 +2,12 @@
     <div class="top-bar">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="toggle-btn"><i class="icon-line_icon"></i></div>
+                <div class="col-lg-6 align-self-center">
+                    <div class="toggle-btn"><i class="icon-menu_multimedia_bars_media_icon"></i></div>
                     <div class="main-search form-group">
-                        <input type="text" class="form-control" required>
-                        <label class="input-label">Search...</label>
                         <i class="icon-Icon-awesome-search"></i>
+                        <input type="text" class="form-control" required placeholder="Search...">
+                        <!--<label class="input-label">Search...</label>-->
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -17,13 +17,13 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img src="{{ asset('front/assets/images/profile-1.png') }}" alt="">
-                                    <p>Clinical Heath Network</p>
+                                    <p>Clinical Heath <br> Network</p>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <ul>
                                         <li>
                                             <a href="#" class="item">My Profile</a>
-                                            <a href="#" class="btn btn-primary btn-md">Log Out</a>
+                                            <a href="{{route('logout')}}" class="btn btn-primary btn-md">Log Out</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -34,7 +34,7 @@
                                     <i class="icon-Icon-ionic-md-notifications"></i>
                                     <span class="badge badge-pill badge-danger">5</span>
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <ul>
                                         <li class="p-3 text-right">
                                             <a href="#" class="mark-read">Mark all read</a>

@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <section class="login-pg" style="background-image:url({{ asset('front/assets/images/login-bg.png') }});">
+    <section class="login-pg">
         <div class="login-header">
             <div class="logo">
                 <img src="{{ asset('front/assets/images/logo.png') }}" alt="">
@@ -25,9 +25,11 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="formwrap">
-            <div class="login-form">
+            <div class="row">
+                <div class="col-xl-4 col-lg-8 ml-lg-auto">
+                    <div class="login-form">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 mx-auto">
@@ -72,6 +74,8 @@
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
                 </div>
             </div>
         </div>

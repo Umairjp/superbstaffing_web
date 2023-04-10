@@ -8,220 +8,221 @@
                 Post A Job
             </button>
         </div>
-
-        <div class="table-responsive">
-            <table class="dashboard-table">
-                <tr>
-                    <th>
-                        <h1 class="th-title">Job Title</h1>
-                    </th>
-                    <th>
-                        <h1 class="th-title">Candidate</h1>
-                    </th>
-                    <th>
-                        <h1 class="th-title">Salary Status</h1>
-                    </th>
-                    <th>
-                        <h1 class="th-title">Job Status</h1>
-                    </th>
-                    <th>
-                        <h1 class="th-title">Action</h1>
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        <h1 class="title">Lpn- Inpatient Nursing <span>Full Time</span></h1>
-                        <h6 class="sub-title">Created : 01-01-2022 End 10-01-2022</h6>
-                        <p class="para">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                    </td>
-                    <td>
-                        <div class="row counter-row">
-                            <div class="col-4">
-                                <h1 class="counter">3</h1>
-                                <p class="counter-para">Active Candidate</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">0</h1>
-                                <p class="counter-para">Awaiting</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">0</h1>
-                                <p class="counter-para">Reviewed</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">0</h1>
-                                <p class="counter-para">Contact</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">1</h1>
-                                <p class="counter-para">Hired</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="salary">$25/ Hr</p>
-                    </td>
-                    <td>
-                        <ul class="nav-menu job-status">
-                            <li class="nav-item dropdown account-item">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Open</a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="btn btn-primary btn-md">Active</a>
-                                        </li>
-                                    </ul>
+       
+                <div class="table-responsive">
+                    <table class="dashboard-table">
+                        <tr>
+                            <th>
+                                <h1 class="th-title">Job Title</h1>
+                            </th>
+                            <th>
+                                <h1 class="th-title">Candidate</h1>
+                            </th>
+                            <th>
+                                <h1 class="th-title">Salary Status</h1>
+                            </th>
+                            <th>
+                                <h1 class="th-title">Job Status</h1>
+                            </th>
+                            <th>
+                                <h1 class="th-title">Action</h1>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h1 class="title">Lpn- Inpatient Nursing <span>Full Time</span></h1>
+                                <h6 class="sub-title">Created : 01-01-2022 End 10-01-2022</h6>
+                                <p class="para">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                            </td>
+                            <td>
+                                <div class="row counter-row">
+                                    <div class="col-4">
+                                        <h1 class="counter">3</h1>
+                                        <p class="counter-para">Active Candidate</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">0</h1>
+                                        <p class="counter-para">Awaiting</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">0</h1>
+                                        <p class="counter-para">Reviewed</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">0</h1>
+                                        <p class="counter-para">Contact</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">1</h1>
+                                        <p class="counter-para">Hired</p>
+                                    </div>
                                 </div>
-                            </li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul class="nav-menu action">
-                            <li class="nav-item dropdown account-item">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="btn btn-primary btn-md">Action</a>
-                                        </li>
-                                    </ul>
+                            </td>
+                            <td>
+                                <p class="salary">$25/ Hr</p>
+                            </td>
+                            <td>
+                                <ul class="nav-menu job-status">
+                                    <li class="nav-item dropdown account-item">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Open</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" class="btn btn-primary btn-md">Active</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="nav-menu action">
+                                    <li class="nav-item dropdown account-item">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" class="btn btn-primary btn-md">Action</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h1 class="title">Lpn- Inpatient Nursing <span>Full Time</span></h1>
+                                <h6 class="sub-title">Created : 01-01-2022 End 10-01-2022</h6>
+                                <p class="para">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                            </td>
+                            <td>
+                                <div class="row counter-row">
+                                    <div class="col-4">
+                                        <h1 class="counter">3</h1>
+                                        <p class="counter-para">Active Candidate</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">0</h1>
+                                        <p class="counter-para">Awaiting</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">0</h1>
+                                        <p class="counter-para">Reviewed</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">0</h1>
+                                        <p class="counter-para">Contact</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">1</h1>
+                                        <p class="counter-para">Hired</p>
+                                    </div>
                                 </div>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h1 class="title">Lpn- Inpatient Nursing <span>Full Time</span></h1>
-                        <h6 class="sub-title">Created : 01-01-2022 End 10-01-2022</h6>
-                        <p class="para">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                    </td>
-                    <td>
-                        <div class="row counter-row">
-                            <div class="col-4">
-                                <h1 class="counter">3</h1>
-                                <p class="counter-para">Active Candidate</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">0</h1>
-                                <p class="counter-para">Awaiting</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">0</h1>
-                                <p class="counter-para">Reviewed</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">0</h1>
-                                <p class="counter-para">Contact</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">1</h1>
-                                <p class="counter-para">Hired</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="salary">$25/ Hr</p>
-                    </td>
-                    <td>
-                        <ul class="nav-menu job-status">
-                            <li class="nav-item dropdown account-item">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Open</a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="btn btn-primary btn-md">Active</a>
-                                        </li>
-                                    </ul>
+                            </td>
+                            <td>
+                                <p class="salary">$25/ Hr</p>
+                            </td>
+                            <td>
+                                <ul class="nav-menu job-status">
+                                    <li class="nav-item dropdown account-item">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Open</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" class="btn btn-primary btn-md">Active</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="nav-menu action">
+                                    <li class="nav-item dropdown account-item">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" class="btn btn-primary btn-md">Action</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h1 class="title">Lpn- Inpatient Nursing <span>Full Time</span></h1>
+                                <h6 class="sub-title">Created : 01-01-2022 End 10-01-2022</h6>
+                                <p class="para">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                            </td>
+                            <td>
+                                <div class="row counter-row">
+                                    <div class="col-4">
+                                        <h1 class="counter">3</h1>
+                                        <p class="counter-para">Active Candidate</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">0</h1>
+                                        <p class="counter-para">Awaiting</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">0</h1>
+                                        <p class="counter-para">Reviewed</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">0</h1>
+                                        <p class="counter-para">Contact</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h1 class="counter">1</h1>
+                                        <p class="counter-para">Hired</p>
+                                    </div>
                                 </div>
-                            </li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul class="nav-menu action">
-                            <li class="nav-item dropdown account-item">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="btn btn-primary btn-md">Action</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h1 class="title">Lpn- Inpatient Nursing <span>Full Time</span></h1>
-                        <h6 class="sub-title">Created : 01-01-2022 End 10-01-2022</h6>
-                        <p class="para">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                    </td>
-                    <td>
-                        <div class="row counter-row">
-                            <div class="col-4">
-                                <h1 class="counter">3</h1>
-                                <p class="counter-para">Active Candidate</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">0</h1>
-                                <p class="counter-para">Awaiting</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">0</h1>
-                                <p class="counter-para">Reviewed</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">0</h1>
-                                <p class="counter-para">Contact</p>
-                            </div>
-                            <div class="col-2">
-                                <h1 class="counter">1</h1>
-                                <p class="counter-para">Hired</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="salary">$25/ Hr</p>
-                    </td>
-                    <td>
-                        <ul class="nav-menu job-status">
-                            <li class="nav-item dropdown account-item">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Open</a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="btn btn-primary btn-md">Active</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul class="nav-menu action">
-                            <li class="nav-item dropdown account-item">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="btn btn-primary btn-md">Action</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
-        </div>
+                            </td>
+                            <td>
+                                <p class="salary">$25/ Hr</p>
+                            </td>
+                            <td>
+                                <ul class="nav-menu job-status">
+                                    <li class="nav-item dropdown account-item">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Open</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" class="btn btn-primary btn-md">Active</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="nav-menu action">
+                                    <li class="nav-item dropdown account-item">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" class="btn btn-primary btn-md">Action</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+          
 
         <div class="container-fluid mt-50">
             <div class="row">

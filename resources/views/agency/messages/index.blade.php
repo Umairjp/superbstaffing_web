@@ -3,9 +3,11 @@
 @section('content')
     <section class="section-padding messages-pg">
         <h1 class="banner-heading">Messages</h1>
-        <div class="container-fluid">
+       
             <div class="row">
                 <div class="col-lg-4">
+                     <div class="card mt-30">
+                    <div class="card-body">
                     <div class="dashboard-messages">
                         <h1 class="heading">Messages</h1>
                         <div class="messages-box">
@@ -122,6 +124,8 @@
 
                         </div>
                     </div>
+                    </div>
+                    </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="chat-section">
@@ -155,6 +159,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
     </section>
 @endsection

@@ -4,11 +4,12 @@
     <section class="section-padding">
         <div class="custom-dsb mb-30">
             <h1 class="banner-heading">Employees</h1>
-            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+            <button type="button" class="btn float-lg-right" data-toggle="modal" data-target="#exampleModalCenter">
                 +Add Employee
             </button>
         </div>
-
+ <div class="card">
+                    <div class="card-body">
         <div class="employees-table">
             <table>
                 <tr>
@@ -418,6 +419,7 @@
                 </tr>
             </table>
         </div>
-
+</div>
+</div>
     </section>
 @endsection

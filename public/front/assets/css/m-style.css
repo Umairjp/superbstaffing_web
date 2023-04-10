@@ -48,7 +48,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-menu_multimedia_bars_media_icon:before {
+  content: "\e91c";
+}
 .icon-Group-4:before {
   content: "\e900";
 }

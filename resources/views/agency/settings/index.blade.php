@@ -7,8 +7,8 @@
         </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 col-md-2">
-                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <div class="col-lg-4 col-md-3">
+                    <div class="nav flex-column nav-pills horizon-nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="nav-link active" id="v-pills-account-tab" data-toggle="pill" href="#v-pills-account"
                             role="tab" aria-controls="v-pills-account" aria-selected="true">
                             <h1>Account</h1>
@@ -36,7 +36,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-10">
+                <div class="col-lg-8 col-md-9">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-account" role="tabpanel"
                             aria-labelledby="v-pills-account-tab">
@@ -277,7 +277,7 @@
                             aria-labelledby="v-pills-resources-tab">
                             <div class="resources main-div">
                                 <h1>Additional Resources</h1>
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <ul class="nav nav-tabs setting-tab" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
                                             role="tab" aria-controls="home" aria-selected="true">Terms &
