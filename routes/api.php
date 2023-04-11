@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,23 +22,25 @@ use App\Http\Controllers\Api\ApiController;
 
 Route::group(['prefix' => 'auth'], function () {
 
-    Route::post('register', [AuthController::class, 'register']);
-    Route::post("verify-otp", [AuthController::class, "verifyOTP"]);
-    Route::post('login',  [AuthController::class, 'login']);
-    Route::post('logout', [AuthController::class, 'logout']);
-    Route::post('forgot', [AuthController::class, 'forgotPassword']);
-    Route::post('reset-password', [AuthController::class, 'resetPassword']);
-    Route::post('social/login', [ApiController::class, 'social_login']);
-    Route::post('refresh/token', [ApiController::class, 'refresh']);
-    Route::get('details', [ApiController::class, 'details']);
+    route::get('/',[AuthController::class, 'ex']);
+
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post("/verify-otp", [AuthController::class, "verifyOTP"]);
+    Route::post('/login',  [AuthController::class, 'login']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/forgot', [AuthController::class, 'forgotPassword']);
+    Route::post('/reset-password', [AuthController::class, 'resetPassword']);
+    Route::post('/social/login', [ApiController::class, 'social_login']);
+    Route::post('/refresh/token', [ApiController::class, 'refresh']);
+    Route::get('/details', [ApiController::class, 'details']);
     Route::post('/sendnotification', [ApiController::class, 'sendNotification']);
     Route::post('/testnot', [ApiController::class, 'testnot']);
 });
 
 
-Route::fallback(function () {
-    return response()->json(['status' => false, 'data' => [], 'error' => ['message' => 'Not Found!']], 404);
-});
+// Route::fallback(function () {
+//     return response()->json(['status' => false, 'data' => [], 'error' => ['message' => 'Not Found!']], 404);
+// });
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {

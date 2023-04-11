@@ -19,6 +19,9 @@ use App\Mail\SendMail;
 use Carbon\Carbon;
 class AuthController extends Controller
 {
+    // public function ex(Request $req){
+    //     echo "kjhkj h s  sdf";
+    // }
     public function register(Request $request)
     {
         try {
