@@ -14,7 +14,7 @@ class Quiz extends Model
         'question'
     ];
 
-    public function answer()
+    public function option()
     {
         return $this->hasMany(QuizAnswer::class, 'question_id', 'id');
     }

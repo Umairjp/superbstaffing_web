@@ -18,5 +18,7 @@ class UserExperience extends Model
         'location',
         'start_date',
         'end_date',
+        'currently_working_at',
+        'skills'
     ];
 }

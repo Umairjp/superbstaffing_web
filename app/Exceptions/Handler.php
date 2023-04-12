@@ -4,7 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-
+use App\Helpers\ResponseHandler;
 class Handler extends ExceptionHandler
 {
     /**
@@ -34,6 +34,14 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
+        $this->renderable(function (\Illuminate\Auth\AuthenticationException $e, $request) {
+            if ($request->is('api/*')) {
+
+                return  $data = ['status' => true, 'message' => ['Unauthenticated request']];
+            }
+        });
+
+
         $this->reportable(function (Throwable $e) {
             //
         });

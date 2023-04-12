@@ -22,19 +22,18 @@ use App\Http\Controllers\Api\AuthController;
 
 Route::group(['prefix' => 'auth'], function () {
 
-    route::get('/',[AuthController::class, 'ex']);
+  route::get('/', [AuthController::class, 'ex']);
 
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::post("/verify-otp", [AuthController::class, "verifyOTP"]);
-    Route::post('/login',  [AuthController::class, 'login']);
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::post('/forgot', [AuthController::class, 'forgotPassword']);
-    Route::post('/reset-password', [AuthController::class, 'resetPassword']);
-    Route::post('/social/login', [ApiController::class, 'social_login']);
-    Route::post('/refresh/token', [ApiController::class, 'refresh']);
-    Route::get('/details', [ApiController::class, 'details']);
-    Route::post('/sendnotification', [ApiController::class, 'sendNotification']);
-    Route::post('/testnot', [ApiController::class, 'testnot']);
+  Route::post('/register', [AuthController::class, 'register']);
+  Route::post("/verify-otp", [AuthController::class, "verifyOTP"]);
+  Route::post('/login',  [AuthController::class, 'login']);
+  Route::post('/forgot', [AuthController::class, 'forgotPassword']);
+  Route::post('/reset-password', [AuthController::class, 'resetPassword']);
+  Route::post('/social/login', [ApiController::class, 'social_login']);
+  Route::post('/refresh/token', [ApiController::class, 'refresh']);
+  Route::get('/details', [ApiController::class, 'details']);
+  Route::post('/sendnotification', [ApiController::class, 'sendNotification']);
+  Route::post('/testnot', [ApiController::class, 'testnot']);
 });
 
 
@@ -44,18 +43,16 @@ Route::group(['prefix' => 'auth'], function () {
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    // protected routes go here
-    Route::get('/one', function () {
-        echo json_encode('jkhsd fkjhskdfjhskdjfhk');
-    });
+  // protected routes go here
+  Route::get('/one', function () {
+    echo json_encode('jkhsd fkjhskdfjhskdjfhk');
+  });
 
-    Route::post('/profile', [AuthController::class, 'profile']);
-    Route::post('/user-document', [AuthController::class, 'addDocument']);
-    Route::post('/user-experience', [AuthController::class, 'addExperience']);
-    Route::post('/add-reference', [AuthController::class, 'addReference']);
-    Route::get('/quiz', [AuthController::class, 'getQuiz']);
-    // Route::post('/user-experience', function(){
-    //   echo "sdf";
-    // });
-
+  Route::post('/profile', [AuthController::class, 'profile']);
+  Route::post('/user-document', [AuthController::class, 'addDocument']);
+  Route::post('/user-experience', [AuthController::class, 'addExperience']);
+  Route::post('/add-reference', [AuthController::class, 'addReference']);
+  Route::get('/quiz', [AuthController::class, 'getQuiz']);
+  Route::post('/quiz-submit', [AuthController::class, 'quizSubmit']);
+  Route::post('/logout', [AuthController::class, 'logout']);
 });

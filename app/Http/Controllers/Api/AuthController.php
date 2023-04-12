@@ -13,10 +13,12 @@ use App\Models\UserExperience;
 use App\Models\UserReference;
 use App\Models\UserDocument;
 use App\Models\Quiz;
+use App\Models\QuizAnswer;
 use Validator;
 use Mail;
 use App\Mail\SendMail;
 use Carbon\Carbon;
+
 class AuthController extends Controller
 {
     // public function ex(Request $req){
@@ -38,7 +40,7 @@ class AuthController extends Controller
             if ($validated->fails()) {
                 return response()->json(['status' => false, 'data' => [], 'error' => $validated->errors()]);
             }
-            $otp = rand(1000,9999);
+            $otp = rand(1000, 9999);
             $user = new User;
             $user->full_name     = $request->full_name;
             $user->email         = $request->email;
@@ -49,7 +51,7 @@ class AuthController extends Controller
             $user->save();
 
             $testMailData = [
-                'body' => 'This is the body of test email.'.$otp
+                'body' => 'This is the body of test email.' . $otp
             ];
             Mail::to($request->email)->send(new SendMail($testMailData));
             $token = $user->createToken('apiToken')->plainTextToken;
@@ -58,65 +60,10 @@ class AuthController extends Controller
             return response()->json(['status' => true, 'data' => ['token' => $token, 'user' => new UserResource($user)], 'error' => []]);
         } catch (\Exception $e) {
             return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
-        }finally {
+        } finally {
             DB::commit();
         }
     }
-
-    // public function register(Request $request)
-    // {
-    //     try {
-    //         DB::beginTransaction();
-    //         $rules = [
-    //             'company_name' => 'required',
-    //             'company_phone' => 'required',
-    //             'email' => 'required|email',
-    //             'password' => 'required',
-    //             'zip_code' => 'required',
-    //             'country' => 'required',
-    //             'acount_type' => 'required',
-    //             'about' => 'required',
-    //             'industry' => 'required',
-    //             'type' =>   'required',
-    //             'specialities' => 'required',
-    //             'founded' => 'required'
-    //         ];
-
-    //         $validated = Validator::make($request->all(), $rules);
-    //         if ($validated->fails()) {
-    //             return response()->json(['status' => false, 'data' => [], 'error' => $validated->errors()]);
-    //         }
-    //         $otp = rand(1000,9999);
-    //         $user = new User;
-    //         $user->company_name     = $request->company_name;
-    //         $user->company_phone    = $request->company_phone;
-    //         $user->email            = $request->email;
-    //         $user->password         = Hash::make($request->password);
-    //         $user->zip_code         = $request->zip_code;
-    //         $user->country          = $request->country;
-    //         $user->acount_type      = $request->acount_type;
-    //         $user->about            = $request->about;
-    //         $user->industry         = $request->industry;
-    //         $user->type             = $request->type;
-    //         $user->specialities     = $request->specialities;
-    //         $user->founded          = $request->founded;
-    //         $user->otp              = $otp;
-    //         $user->save();
-
-    //         $testMailData = [
-    //             'body' => 'This is the body of test email.'.$otp
-    //         ];
-    //         Mail::to($request->email)->send(new SendMail($testMailData));
-    //         $token = $user->createToken('apiToken')->plainTextToken;
-
-
-    //         return response()->json(['status' => true, 'data' => ['token' => $token, 'user' => new UserResource($user)], 'error' => []]);
-    //     } catch (\Exception $e) {
-    //         return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
-    //     }finally {
-    //         DB::commit();
-    //     }
-    // }
 
     public function verifyOTP(Request $request)
     {
@@ -126,12 +73,12 @@ class AuthController extends Controller
             'otp' => 'required',
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return response()->json(['error' => $validator->messages()], 400);
         }
         // **** Request Validations End****
         $authUser = User::where('email', $request->email)->where('otp', $request->otp)->first();
-        if($authUser){
+        if ($authUser) {
             $user = User::where('id', $authUser->id)->first();
             if ($user) {
                 $user->otp_verified_at = Carbon::now();
@@ -139,12 +86,10 @@ class AuthController extends Controller
                 $user->save();
                 $token = $user->createToken('apiToken')->plainTextToken;
                 return response()->json(['status' => true, 'data' => ['token' => $token, 'user' => new UserResource($user)], 'error' => []]);
-            }
-            else{
+            } else {
                 return response()->json(['error' => 'User not found'], 400);
             }
-        }
-        else{
+        } else {
             return response()->json(['error' => 'Invalid Credentials'], 400);
         }
     }
@@ -163,7 +108,8 @@ class AuthController extends Controller
             if (!$user || !Hash::check($request->password, $user->password)) {
 
                 return response([
-                    'msg' => 'incorrect username or password'
+                    'status' => true,
+                    'message' => 'incorrect username or password'
                 ], 401);
             }
 
@@ -185,21 +131,21 @@ class AuthController extends Controller
             //$data =  $request->media;
             //echo $data->getClientOriginalName();
             //print_r($request->all());
-            if($request->has('media')){
+            if ($request->has('media')) {
 
 
-            $file = $request->file('media');
+                $file = $request->file('media');
 
                 $fileName = $file->getClientOriginalName(); //time().'_'.$file->getClientOriginalName();
 
-                $destinationPath = 'uploads/'.auth()->user()->id.'/'.'profile';
-                $file->move($destinationPath,$file->getClientOriginalName());
+                $destinationPath = 'uploads/' . auth()->user()->id . '/' . 'profile';
+                $file->move($destinationPath, $file->getClientOriginalName());
 
                 // $filePath = $req->file('file')->storeAs('uploads', $fileName, 'public');
                 // $fileModel->name = time().'_'.$req->file->getClientOriginalName();
                 // $fileModel->file_path = '/storage/' . $filePath;
                 // $fileModel->save();
-            }else{
+            } else {
                 $fileName = 'defaultavatar.jpg';
             }
 
@@ -233,22 +179,35 @@ class AuthController extends Controller
             return response()->json(['status' => true, 'data' => ['token' => $token, 'user' => new UserResource($user)], 'error' => []]);
         } catch (\Exception $e) {
             return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
-        }finally {
+        } finally {
             DB::commit();
         }
     }
 
-    public function addDocument(Request $request){
+    public function addDocument(Request $request)
+    {
+        $rules = [
+            'ppd' => 'required|mimes:pdf|max:10000',
+            'resume' => 'required|mimes:pdf|max:10000',
+            'driving_licence' => 'required|mimes:pdf|max:10000',
+            'physical' => 'required|mimes:pdf|max:10000',
+            'cpr' => 'required|mimes:pdf|max:10000',
+            'covid_card' => 'required|mimes:pdf|max:10000'
+        ];
 
+        $validated = Validator::make($request->all(), $rules);
+        if ($validated->fails()) {
+            return response()->json(['status' => false, 'data' => [], 'error' => $validated->errors()]);
+        }
 
         $data = $request->all();
         $doc = array();
-        foreach($data as $key => $value){
+        foreach ($data as $key => $value) {
 
             $fileName = $value->getClientOriginalName(); //time().'_'.$file->getClientOriginalName();
 
-            $destinationPath = 'uploads/'.auth()->user()->id.'/'.'document';
-            $value->move($destinationPath,$value->getClientOriginalName());
+            $destinationPath = 'uploads/' . auth()->user()->id . '/' . 'document';
+            $value->move($destinationPath, $value->getClientOriginalName());
             $doc = ['user_id' => auth()->user()->id, 'document' => $fileName];
             UserDocument::create($doc);
         }
@@ -260,21 +219,21 @@ class AuthController extends Controller
         return response()->json(['status' => true, 'data' => ['message' => 'Document Successfully added'], 'error' => []]);
     }
 
+    public function addExperience(Request $request)
+    {
 
-    public function addExperience(Request $request){
-
-        //print_r($request->all());
         $data = $request->data;
-        for($i=0; $i<count($data); $i++){
+        for ($i = 0; $i < count($data); $i++) {
             UserExperience::create([
                 'user_id' => auth()->user()->id,
                 'title' => $data[$i]['title'],
                 'employment' => $data[$i]['employment'],
                 'company_name' => $data[$i]['company_name'],
                 'location' => $data[$i]['location'],
+                'currently_working_at' => $data[$i]['currently_working_at'],
+                'skills' => $data[$i]['skills'],
                 'start_date' => $data[$i]['start_date'],
                 'end_date' => $data[$i]['end_date']
-
             ]);
         }
 
@@ -285,7 +244,8 @@ class AuthController extends Controller
         return response()->json(['status' => true, 'data' => ['message' => 'Successfully add expirence'], 'error' => []]);
     }
 
-    public function addReference(Request $request){
+    public function addReference(Request $request)
+    {
         $data = $request->data;
 
         // $rules = [
@@ -302,7 +262,7 @@ class AuthController extends Controller
         //     return response()->json(['status' => false, 'data' => [], 'error' => $validated->errors()]);
         // }
 
-        for($i=0; $i<count($data); $i++){
+        for ($i = 0; $i < count($data); $i++) {
             UserReference::create([
                 'user_id' => auth()->user()->id,
                 'name' => $data[$i]['name'],
@@ -324,8 +284,9 @@ class AuthController extends Controller
         return response()->json(['status' => true, 'data' => ['message' => 'Successfully add reference'], 'error' => []]);
     }
 
-    public function getQuiz(Request $request){
-        $data = Quiz::with(['answer:id,question_id,answer'])->get()->toArray();
+    public function getQuiz(Request $request)
+    {
+        $data = Quiz::with(['option:id,question_id,answer'])->get()->toArray();
         return response()->json(['status' => true, 'data' => ['message' => $data], 'error' => []]);
     }
 
@@ -337,16 +298,17 @@ class AuthController extends Controller
         return response()->json(['status' => true, 'data' => ['message' => 'Successfully logged out.'], 'error' => []]);
     }
 
-    public function forgotPassword(Request $request){
+    public function forgotPassword(Request $request)
+    {
 
         ///return response()->json(['status' => true, 'data' => ['message' => 'Successfully logged out.'], 'error' => []]);// $otp = rand(1000,9999);
-        $otp = rand(1000,9999);
-        $user = User::where('email','=',$request->email)->update(['otp' => $otp]);
+        $otp = rand(1000, 9999);
+        $user = User::where('email', '=', $request->email)->update(['otp' => $otp]);
 
-        if($user){
+        if ($user) {
 
             $testMailData = [
-                'body' => 'This is the body of test email.'.$otp
+                'body' => 'This is the body of test email.' . $otp
             ];
             Mail::to($request->email)->send(new SendMail($testMailData));
 
@@ -354,30 +316,50 @@ class AuthController extends Controller
 
 
             return response()->json(['status' => true, 'data' => ['message' => 'Successfully otp sent'], 'error' => []]);
-        }
-        else{
+        } else {
             return response(["status" => 401, 'message' => 'Invalid']);
         }
-
     }
 
-    public function resetPassword(Request $request){
-        try{
-            //echo $request->email." ";
-
-            //echo $request->opt;
+    public function resetPassword(Request $request)
+    {
+        try {
             $password = Hash::make($request->password);
 
-            $user = User::where([['email','=',$request->email],['otp','=',$request->otp]])
-                ->update(['password' => $password,'otp' => null]);
+            $user = User::where([['email', '=', $request->email], ['otp', '=', $request->otp]])
+                ->update(['password' => $password, 'otp' => null]);
             //print_r($user);
-            if($user){
+            if ($user) {
                 return response()->json(['status' => true, 'data' => ['message' => 'Password reset successfully'], 'error' => []]);
-            }else{
+            } else {
                 return response()->json(['status' => true, 'data' => ['message' => 'Otp or email invalid'], 'error' => []]);
             }
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
         }
+    }
+
+    public function quizSubmit(Request $request){
+        //echo "sdf";
+        //print_r($request->answers);
+        //die;
+        $quiz = Quiz::where('status',1)->get();
+        $quizCount = $quiz->count();
+        $data = $request->answers;
+        //print_r($data);
+        //$id = array();
+        if($quizCount== count($data)){
+            for($i=0; $i<count($data); $i++){
+                $id[] = $data[$i]['key'];
+            }
+
+            $result = QuizAnswer::select('id','flag')->whereIn('id', $id)->where('flag','1')->get();
+
+            echo ($result->count());
+        }else{
+
+            return response()->json(['status' => true, 'message' => 'Please attepmt all questions']);
+        }
+
     }
 }
