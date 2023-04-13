@@ -45,7 +45,7 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['middleware' => ['auth:sanctum']], function () {
   // protected routes go here
   Route::get('/one', function () {
-    echo json_encode('jkhsd fkjhskdfjhskdjfhk');
+    echo json_encode('testing purpose');
   });
 
   Route::post('/profile', [AuthController::class, 'profile']);

@@ -103,6 +103,11 @@ class AuthController extends Controller
 
             ];
 
+            $validated = Validator::make($request->all(), $rules);
+            if ($validated->fails()) {
+                return response()->json(['status' => false, 'data' => [], 'error' => $validated->errors()]);
+            }
+
             $user = User::where('email', $request->email)->first();
 
             if (!$user || !Hash::check($request->password, $user->password)) {
