@@ -14,7 +14,7 @@ use App\Models\UserReference;
 use App\Models\UserDocument;
 use App\Models\Quiz;
 use App\Models\QuizAnswer;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 use Mail;
 use App\Mail\SendMail;
 use Carbon\Carbon;
@@ -30,7 +30,7 @@ class AuthController extends Controller
             DB::beginTransaction();
             $rules = [
                 'full_name' => 'required',
-                'email' => 'required',
+                'email' => 'required|string|max:255|unique:users,email',
                 'email' => 'required|email',
                 'password' => 'required',
                 'device_token' => 'required',
@@ -40,6 +40,14 @@ class AuthController extends Controller
             if ($validated->fails()) {
                 return response()->json(['status' => false, 'data' => [], 'error' => $validated->errors()]);
             }
+
+            $userEmailDetails = User::where('email', '=', $request->email)->first();
+
+            if ($userEmailDetails != null) {
+              return response()->json(['status' => false, 'data' => [], 'error' => 'Email alredy exit']);
+            }
+
+
             $otp = rand(1000, 9999);
             $user = new User;
             $user->full_name     = $request->full_name;
@@ -120,7 +128,7 @@ class AuthController extends Controller
 
             $token = $user->createToken('apiToken')->plainTextToken;
 
-
+            unset($user->otp);
             return response()->json(['status' => true, 'data' => ['token' => $token, 'user' => $user], 'error' => []]);
         } catch (\Exception $e) {
             return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
@@ -344,27 +352,27 @@ class AuthController extends Controller
         }
     }
 
-    public function quizSubmit(Request $request){
+    public function quizSubmit(Request $request)
+    {
         //echo "sdf";
         //print_r($request->answers);
         //die;
-        $quiz = Quiz::where('status',1)->get();
+        $quiz = Quiz::where('status', 1)->get();
         $quizCount = $quiz->count();
         $data = $request->answers;
         //print_r($data);
         //$id = array();
-        if($quizCount== count($data)){
-            for($i=0; $i<count($data); $i++){
+        if ($quizCount == count($data)) {
+            for ($i = 0; $i < count($data); $i++) {
                 $id[] = $data[$i]['key'];
             }
 
-            $result = QuizAnswer::select('id','flag')->whereIn('id', $id)->where('flag','1')->get();
+            $result = QuizAnswer::select('id', 'flag')->whereIn('id', $id)->where('flag', '1')->get();
 
             echo ($result->count());
-        }else{
+        } else {
 
             return response()->json(['status' => true, 'message' => 'Please attepmt all questions']);
         }
-
     }
 }
