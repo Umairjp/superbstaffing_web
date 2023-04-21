@@ -339,11 +339,26 @@ class AuthController extends Controller
         try {
             $password = Hash::make($request->password);
 
-            $user = User::where([['email', '=', $request->email], ['otp', '=', $request->otp]])
-                ->update(['password' => $password, 'otp' => null]);
+            $user = User::where(['email', '=', $request->email])->update(['password' => $password]);
             //print_r($user);
             if ($user) {
                 return response()->json(['status' => true, 'data' => ['message' => 'Password reset successfully'], 'error' => []]);
+            } else {
+                return response()->json(['status' => true, 'data' => ['message' => 'Invalid email'], 'error' => []]);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
+        }
+    }
+
+    public function resetPasswordVerifyOtp(Request $request)
+    {
+        try {
+
+            $user = User::where([['otp', '=', $request->otp]])->update(['otp' => null]);
+            //print_r($user);
+            if ($user) {
+                return response()->json(['status' => true, 'data' => ['message' => 'Successfully OTP verify'], 'error' => []]);
             } else {
                 return response()->json(['status' => true, 'data' => ['message' => 'Otp or email invalid'], 'error' => []]);
             }
@@ -351,6 +366,7 @@ class AuthController extends Controller
             return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
         }
     }
+
 
     public function quizSubmit(Request $request)
     {

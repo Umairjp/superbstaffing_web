@@ -34,6 +34,7 @@ Route::group(['prefix' => 'auth'], function () {
   Route::get('/details', [ApiController::class, 'details']);
   Route::post('/sendnotification', [ApiController::class, 'sendNotification']);
   Route::post('/testnot', [ApiController::class, 'testnot']);
+  Route::post('/verify-otp', [ApiController::class, 'resetPasswordVerifyOtp']);
 });
 
 
